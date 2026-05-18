@@ -61,9 +61,6 @@ export const metadata: Metadata = {
     description:
       "Books, companies, music, platforms, and ideas — built to elevate people and unlock freedom.",
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export const viewport: Viewport = {

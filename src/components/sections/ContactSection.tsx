@@ -24,8 +24,8 @@ export function ContactSection() {
             <Image
               src="/photos/portrait-cutout.png"
               alt="Jamaur Johnson"
-              width={732}
-              height={710}
+              width={708}
+              height={667}
               className="relative w-52 sm:w-64 lg:w-full h-auto drop-shadow-[0_30px_60px_rgba(0,0,0,0.55)]"
             />
           </motion.div>

@@ -42,7 +42,7 @@ export function AboutSection() {
               />
             </div>
 
-            <div className="absolute -bottom-6 -right-2 w-36 overflow-hidden rounded-2xl border-2 border-white/15 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.85)] sm:-bottom-8 sm:-right-6 sm:w-52">
+            <div className="absolute -bottom-6 right-3 w-32 overflow-hidden rounded-2xl border-2 border-white/15 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.85)] sm:-bottom-8 sm:right-5 sm:w-48">
               <Image
                 src="/photos/portrait-street.jpg"
                 alt="Jamaur Johnson"
