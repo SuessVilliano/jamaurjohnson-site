@@ -9,14 +9,13 @@ import { AboutSection } from "@/components/sections/AboutSection";
 import { VisionSection } from "@/components/sections/VisionSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
-import { BookCallProvider } from "@/components/lead/BookCallContext";
-import { BookCallModal } from "@/components/lead/BookCallModal";
+import { LeadModalProvider } from "@/components/lead/LeadModalContext";
+import { LeadModal } from "@/components/lead/LeadModal";
 import { ExitIntentPopup } from "@/components/lead/ExitIntentPopup";
-import { AIChat } from "@/components/lead/AIChat";
 
 export default function Home() {
   return (
-    <BookCallProvider>
+    <LeadModalProvider>
       <main className="relative w-full">
         <Nav />
         <Hero />
@@ -31,9 +30,8 @@ export default function Home() {
         <Footer />
       </main>
 
-      <BookCallModal />
+      <LeadModal />
       <ExitIntentPopup />
-      <AIChat />
-    </BookCallProvider>
+    </LeadModalProvider>
   );
 }

@@ -24,6 +24,7 @@ export type MusicProject = {
   artist?: string;
   description: string;
   link?: string;
+  cover?: string;
   accent: "aqua" | "violet" | "pink" | "amber";
 };
 
@@ -225,47 +226,56 @@ export const MUSIC: MusicProject[] = [
     title: "Written By Human",
     artist: "Suess Villiano",
     description: "A statement project — proof of authorship in an AI-saturated world.",
-    link: "http://distrokid.com/hyperfollow/suessvilliano1/written-by-human/",
+    link: "https://distrokid.com/hyperfollow/suessvilliano1/written-by-human",
+    cover: "/photos/music/cover-written-by-human.jpg",
     accent: "aqua",
   },
   {
     title: "Pyscho Glow",
     artist: "Meta SV",
     description: "Glow that comes from depth. Atmospheric and unapologetic.",
-    link: "http://distrokid.com/hyperfollow/metasv/pyscho-glow/",
+    link: "https://distrokid.com/hyperfollow/metasv/pyscho-glow",
+    cover: "/photos/music/cover-psycho-glow.jpg",
     accent: "violet",
   },
   {
     title: "Rise 2026",
     artist: "Meta SV",
     description: "An anthem for the next era — momentum on tape.",
-    link: "http://distrokid.com/hyperfollow/metasv/rise-2026/",
+    link: "https://distrokid.com/hyperfollow/metasv/rise-2026",
+    cover: "/photos/music/cover-rise-2026.jpg",
     accent: "pink",
   },
   {
     title: "Healing Frequencies",
+    artist: "Meta SV",
     description: "Tuned soundscapes designed for restoration, meditation, and clarity.",
+    link: "https://distrokid.com/hyperfollow/suessvilliano1/healing-frequencies",
+    cover: "/photos/music/cover-healing-frequencies.jpg",
     accent: "aqua",
   },
   {
     title: "Instrumentals for the Vortex",
+    artist: "Meta SV",
     description: "Frequency-rich instrumentals to align focus and performance.",
-    link: "https://music.apple.com/us/album/instrumentals-for-the-vortex/1772615359",
+    link: "https://distrokid.com/hyperfollow/suessvilliano1/instrumentals-for-the-vortex",
+    cover: "/photos/music/cover-vortex.jpg",
     accent: "violet",
   },
   {
     title: "Trade Zone",
+    artist: "Meta SV",
     description: "Focus music for the screens — built for the session.",
+    link: "https://distrokid.com/hyperfollow/suessvilliano1/the-trade-zone",
+    cover: "/photos/music/cover-trade-zone.jpg",
     accent: "amber",
   },
   {
     title: "Trade Zone 2",
+    artist: "Meta SV",
     description: "The sequel — deeper, denser, sharper.",
+    link: "https://distrokid.com/hyperfollow/suessvilliano1/trade-hybrid-presents-trade-zone-2",
+    cover: "/photos/music/cover-trade-zone-2.jpg",
     accent: "amber",
-  },
-  {
-    title: "Suess Villiano",
-    description: "The artist project. Raw, original, layered.",
-    accent: "pink",
   },
 ];

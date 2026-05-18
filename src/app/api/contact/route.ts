@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { sendLeadEmail } from "@/lib/lead-email";
+import { pushLeadToGhl } from "@/lib/ghl";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -36,11 +37,31 @@ export async function POST(req: Request) {
 
   const userAgent = req.headers.get("user-agent") ?? undefined;
 
-  const result = await sendLeadEmail({ ...parsed.data, userAgent });
+  // Notify Jamaur by email and sync the lead into GoHighLevel in parallel.
+  // The GHL push is best-effort — a CRM hiccup must not drop the lead email.
+  const [result, ghl] = await Promise.all([
+    sendLeadEmail({ ...parsed.data, userAgent }),
+    pushLeadToGhl({
+      source: parsed.data.source,
+      email: parsed.data.email,
+      name: parsed.data.name,
+      phone: parsed.data.phone,
+      company: parsed.data.company,
+      message: parsed.data.message,
+    }),
+  ]);
+
+  if (!ghl.ok && !ghl.skipped) {
+    console.error("[contact] GHL sync failed:", ghl.error);
+  }
 
   if (!result.ok) {
     return NextResponse.json({ ok: false, error: result.error }, { status: 502 });
   }
 
-  return NextResponse.json({ ok: true, delivered: result.delivered });
+  return NextResponse.json({
+    ok: true,
+    delivered: result.delivered,
+    synced: ghl.ok,
+  });
 }

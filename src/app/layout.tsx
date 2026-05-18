@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Orbitron, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const space = Space_Grotesk({
@@ -83,7 +84,25 @@ export default function RootLayout({
       lang="en"
       className={`${space.variable} ${orbitron.variable} ${mono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col noise">{children}</body>
+      <body className="min-h-full flex flex-col noise">
+        {children}
+
+        {/* GoHighLevel form/booking widget auto-resize helper.
+            Loaded once globally so booking + form iframes resize correctly,
+            including ones mounted later inside the lead modal. */}
+        <Script
+          src="https://link.msgsndr.com/js/form_embed.js"
+          strategy="afterInteractive"
+        />
+
+        {/* GoHighLevel chat widget — bottom-right conversation bubble. */}
+        <Script
+          src="https://beta.leadconnectorhq.com/loader.js"
+          data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6a0b30308dd781334c57af7c"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }

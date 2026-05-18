@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Modal } from "./Modal";
 import { GlassButton } from "@/components/ui/GlassButton";
-import { useBookCall } from "./BookCallContext";
+import { useLeadModal } from "./LeadModalContext";
 
 const STORAGE_KEY = "jamaur:exit-intent:dismissed-at";
 const SUPPRESS_DAYS = 7;
@@ -14,7 +14,7 @@ export function ExitIntentPopup() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
-  const { openModal: openBookCall } = useBookCall();
+  const { openCalendar } = useLeadModal();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -116,7 +116,7 @@ export function ExitIntentPopup() {
             <GlassButton
               onClick={() => {
                 dismiss();
-                openBookCall();
+                openCalendar();
               }}
               variant="primary"
             >
