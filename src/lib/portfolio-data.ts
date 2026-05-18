@@ -3,6 +3,7 @@ export type Book = {
   category: string;
   description: string;
   status: "Coming Soon" | "Available Soon" | "Available";
+  cover: string;
   link?: string;
 };
 
@@ -99,6 +100,7 @@ export const BOOKS: Book[] = [
     description:
       "A reckoning with the year reality became negotiable — and what comes after.",
     status: "Coming Soon",
+    cover: "/photos/books/cover-the-last-verifiable-year.jpg",
   },
   {
     title: "Synchronicity",
@@ -106,6 +108,7 @@ export const BOOKS: Book[] = [
     description:
       "Reading the signal in the noise. A guide to aligning with the patterns life is already showing you.",
     status: "Coming Soon",
+    cover: "/photos/books/cover-synchronicity.jpg",
   },
   {
     title: "Awakening to Source",
@@ -113,6 +116,7 @@ export const BOOKS: Book[] = [
     description:
       "Remembering what you already are. A field manual for the inward path.",
     status: "Coming Soon",
+    cover: "/photos/books/cover-awakening-to-source.jpg",
   },
   {
     title: "The Space In Between",
@@ -120,6 +124,7 @@ export const BOOKS: Book[] = [
     description:
       "Notes from the threshold — between identities, eras, and selves.",
     status: "Coming Soon",
+    cover: "/photos/books/cover-the-space-in-between.jpg",
   },
   {
     title: "Atomic Habits for Traders",
@@ -127,6 +132,7 @@ export const BOOKS: Book[] = [
     description:
       "The compounding edge: small systems, repeated, that build a trader who can't be shaken.",
     status: "Coming Soon",
+    cover: "/photos/books/cover-atomic-habits.jpg",
   },
   {
     title: "Trading In The Vortex",
@@ -134,6 +140,7 @@ export const BOOKS: Book[] = [
     description:
       "Operating from alignment instead of fear. A philosophy and playbook for the modern trader.",
     status: "Coming Soon",
+    cover: "/photos/books/cover-trading-in-the-vortex.jpg",
   },
   {
     title: "Trade Hybrid",
@@ -141,6 +148,7 @@ export const BOOKS: Book[] = [
     description:
       "The hybrid trader's manual — strategy, technology, psychology, and community as one engine.",
     status: "Coming Soon",
+    cover: "/photos/books/cover-trade-hybrid.jpg",
   },
 ];
 

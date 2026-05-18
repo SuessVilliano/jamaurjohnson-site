@@ -1,41 +1,29 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { BOOKS } from "@/lib/portfolio-data";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { GlassButton } from "@/components/ui/GlassButton";
 
-function BookCover({ title, index }: { title: string; index: number }) {
-  const palettes = [
-    "from-cyan-400 via-blue-500 to-violet-600",
-    "from-violet-500 via-fuchsia-500 to-pink-500",
-    "from-emerald-400 via-cyan-500 to-blue-600",
-    "from-amber-400 via-orange-500 to-pink-600",
-    "from-sky-400 via-indigo-500 to-violet-700",
-  ];
-  const gradient = palettes[index % palettes.length];
-
+function BookCover({ cover, title }: { cover: string; title: string }) {
   return (
     <motion.div
       whileHover={{ rotateY: 8, rotateX: -4 }}
       transition={{ type: "spring", stiffness: 200, damping: 18 }}
-      className="relative aspect-[2/3] w-full rounded-2xl overflow-hidden shadow-[0_30px_60px_-20px_rgba(0,0,0,0.7)]"
+      className="relative aspect-[2/3] w-full overflow-hidden rounded-2xl shadow-[0_30px_60px_-20px_rgba(0,0,0,0.7)]"
       style={{ transformStyle: "preserve-3d", perspective: "1000px" }}
     >
-      <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`} />
-      <div className="absolute inset-0 opacity-30 mix-blend-overlay bg-[radial-gradient(circle_at_30%_20%,white,transparent_60%)]" />
-      <div className="absolute inset-y-0 left-3 w-1 bg-black/30" />
-      <div className="absolute inset-0 p-5 flex flex-col justify-between">
-        <div className="text-[10px] tracking-[0.3em] uppercase text-white/80">
-          JAMAUR · Vol {String(index + 1).padStart(2, "0")}
-        </div>
-        <div
-          className="text-xl sm:text-2xl font-semibold text-white leading-tight"
-          style={{ fontFamily: "var(--font-orbitron)" }}
-        >
-          {title}
-        </div>
-      </div>
+      <Image
+        src={cover}
+        alt={`${title} — book cover`}
+        fill
+        sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 22vw"
+        className="object-cover"
+      />
+      {/* Spine shadow + edge sheen for a physical-book feel */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-3 bg-gradient-to-r from-black/45 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
     </motion.div>
   );
 }
@@ -60,7 +48,7 @@ export function BooksSection() {
               transition={{ duration: 0.6, delay: i * 0.05 }}
               className="group flex flex-col gap-4"
             >
-              <BookCover title={b.title} index={i} />
+              <BookCover cover={b.cover} title={b.title} />
               <div>
                 <div className="text-[10px] uppercase tracking-[0.25em] text-white/50">
                   {b.category}
