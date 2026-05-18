@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useBookCall } from "@/components/lead/BookCallContext";
 
 const LINKS = [
   { href: "#worlds", label: "Worlds" },
@@ -17,6 +18,7 @@ export function Nav() {
   const { scrollY } = useScroll();
   const bgOpacity = useTransform(scrollY, [0, 200], [0, 0.7]);
   const [open, setOpen] = useState(false);
+  const { openModal: openBookCall } = useBookCall();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -59,12 +61,12 @@ export function Nav() {
             ))}
           </ul>
 
-          <a
-            href="mailto:contact@liv8.co"
+          <button
+            onClick={openBookCall}
             className="hidden md:inline-flex h-10 items-center rounded-full px-5 text-sm text-white bg-gradient-to-r from-cyan-400/80 to-violet-500/80 hover:shadow-[0_10px_40px_-10px_rgba(78,224,255,0.6)] transition-shadow"
           >
-            Collaborate
-          </a>
+            Book a Call
+          </button>
 
           <button
             aria-label="Toggle menu"
@@ -113,16 +115,18 @@ export function Nav() {
                 </a>
               </motion.li>
             ))}
-            <motion.a
+            <motion.button
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 * LINKS.length }}
-              href="mailto:contact@liv8.co"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                openBookCall();
+              }}
               className="mt-4 inline-flex h-12 items-center rounded-full px-7 text-base text-white bg-gradient-to-r from-cyan-400/80 to-violet-500/80"
             >
-              Collaborate
-            </motion.a>
+              Book a Call
+            </motion.button>
           </ul>
         </motion.div>
       )}

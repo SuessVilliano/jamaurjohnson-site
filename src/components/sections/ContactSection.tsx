@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { GlassButton } from "@/components/ui/GlassButton";
+import { useBookCall } from "@/components/lead/BookCallContext";
 
 export function ContactSection() {
+  const { openModal } = useBookCall();
   return (
     <section id="contact" className="relative py-28 sm:py-40">
       <div className="mx-auto max-w-5xl px-5 sm:px-8">
@@ -39,7 +41,7 @@ export function ContactSection() {
               <GlassButton href="mailto:contact@liv8.co" size="lg" variant="primary">
                 Email Me
               </GlassButton>
-              <GlassButton href="mailto:contact@liv8.co?subject=Book%20a%20Call" size="lg" variant="ghost">
+              <GlassButton onClick={openModal} size="lg" variant="ghost">
                 Book a Call
               </GlassButton>
               <GlassButton href="#worlds" size="lg" variant="soft">
