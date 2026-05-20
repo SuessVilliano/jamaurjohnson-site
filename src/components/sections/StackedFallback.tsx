@@ -1,3 +1,5 @@
+"use client";
+
 import { Hero } from "@/components/sections/Hero";
 import { ScrollJourney } from "@/components/sections/ScrollJourney";
 import { BooksSection } from "@/components/sections/BooksSection";
@@ -9,9 +11,14 @@ import { VisionSection } from "@/components/sections/VisionSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
 
-export default function Home() {
+/**
+ * Classic stacked layout. Mirrors the main `/` page content so that the `/3d`
+ * route can fall back to the full site on mobile or for visitors with
+ * prefers-reduced-motion set.
+ */
+export function StackedFallback() {
   return (
-    <main className="relative w-full">
+    <>
       <Hero />
       <ScrollJourney />
       <BooksSection />
@@ -22,6 +29,6 @@ export default function Home() {
       <VisionSection />
       <ContactSection />
       <Footer />
-    </main>
+    </>
   );
 }

@@ -4,8 +4,9 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Sparkles, Stars } from "@react-three/drei";
 import { Suspense, useMemo, useRef } from "react";
 import * as THREE from "three";
+import { useDisplayMode } from "./hooks/useDisplayMode";
 
-function FluidOrb() {
+export function FluidOrb() {
   const ref = useRef<THREE.Mesh>(null);
   useFrame(({ clock, pointer }) => {
     if (!ref.current) return;
@@ -32,7 +33,7 @@ function FluidOrb() {
   );
 }
 
-function OrbitRings() {
+export function OrbitRings() {
   const group = useRef<THREE.Group>(null);
   useFrame(({ clock }) => {
     if (!group.current) return;
@@ -61,23 +62,43 @@ function OrbitRings() {
 }
 
 export function HeroScene() {
+  const mode = useDisplayMode();
+
+  if (mode === "off") return null;
+  const lite = mode === "lite";
+
   return (
     <Canvas
-      dpr={[1, 1.8]}
+      dpr={lite ? [1, 1.3] : [1, 1.8]}
       camera={{ position: [0, 0, 6.5], fov: 50 }}
-      gl={{ antialias: true, alpha: true }}
+      gl={{ antialias: !lite, alpha: true, powerPreference: "high-performance" }}
       className="!absolute inset-0"
     >
       <Suspense fallback={null}>
         <ambientLight intensity={0.6} />
         <pointLight position={[6, 6, 6]} intensity={1.4} color="#4ee0ff" />
         <pointLight position={[-6, -3, 4]} intensity={1.1} color="#8b5cf6" />
-        <pointLight position={[0, -6, 2]} intensity={0.7} color="#ff61d3" />
+        {!lite && (
+          <pointLight position={[0, -6, 2]} intensity={0.7} color="#ff61d3" />
+        )}
 
         <FluidOrb />
         <OrbitRings />
-        <Sparkles count={120} scale={9} size={2.2} speed={0.5} color="#4ee0ff" />
-        <Stars radius={40} depth={40} count={1200} factor={3} fade speed={0.6} />
+        <Sparkles
+          count={lite ? 45 : 120}
+          scale={9}
+          size={2.2}
+          speed={0.5}
+          color="#4ee0ff"
+        />
+        <Stars
+          radius={40}
+          depth={40}
+          count={lite ? 420 : 1200}
+          factor={3}
+          fade
+          speed={0.6}
+        />
       </Suspense>
     </Canvas>
   );
