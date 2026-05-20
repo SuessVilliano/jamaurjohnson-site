@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useLeadModal } from "@/components/lead/LeadModalContext";
 
 const LINKS = [
+  { href: "#about", label: "About" },
   { href: "#worlds", label: "Worlds" },
   { href: "#books", label: "Books" },
   { href: "#companies", label: "Companies" },
