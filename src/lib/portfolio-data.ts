@@ -69,8 +69,22 @@ export const YOUTUBE_URL = "https://youtube.com/@suessvilliano";
 export const CONTACT_EMAIL = "contact@liv8.co";
 
 export const ABOUT = {
-  headline:
-    "Builder of Systems, Platforms, Media, and Modern Digital Infrastructure.",
+  headline: "Builder of Ecosystems. Creator of Leverage. Father First.",
+  aliases: "Jamaur Johnson · aka Suess Villiano · bka META SV",
+  intro: [
+    "Jamaur Johnson — known as Suess Villiano in music and META SV across his creative work — is a founder, author, trader, AI automation architect, and music creator who builds the kind of systems most people never see connect.",
+    "He doesn't think in projects. He thinks in ecosystems. Hybrid Funding, Trade Hybrid, LIV8, LIV8AI, AI agents, trading automation, family trusts, education platforms, books, music — every piece is a thread in one larger fabric. Each one is a different form of the same idea: leverage.",
+    "Financial leverage. Technological leverage. Informational leverage. Generational leverage. The goal isn't the money or the platforms. It's freedom — for him, his family, and the people who step into the systems he leaves behind.",
+  ],
+  extended: [
+    "Two energies move through everything he builds: the builder/operator who can architect a CRM, ship an AI agent, or take a prop firm from idea to infrastructure — and the visionary/philosopher who sees fifty futures at once and is trying to figure out which one deserves his full life force. That combination is rare, and it's also dangerous if it isn't focused. The hardest question at his level isn't capability. It's concentration — choosing what compounds versus what merely excites.",
+    "His prop firm isn't just a prop firm to him. It's education, capital access, data, AI, community, discipline, identity, and eventually infrastructure. His AI work isn't just automation — it's removing friction between vision and execution. His interest in trusts, insurance, banking structures, and generational wealth isn't about flexing. It's about never wanting his kids to experience the instability he came from.",
+    "Despite the ambition, almost every decision still orbits around family. His three sons. His role as a father. Wanting to be present later even when the grind is heavier now. Wanting to build something they can step into instead of starting from zero.",
+    "He's not purely corporate-minded. There's still an artist in him — music under Suess Villiano and META SV, storytelling, AI cinema, podcasts, visual identity, cyberpunk aesthetics, motivational media. He cares about emotional resonance, not just utility. He wants people to feel something when they interact with what he builds.",
+    "The strongest thread through all of it: he consistently moves toward systems that give people leverage. Markets. AI. Automation. Decentralization. Trust structures. Ownership. He's trying to escape dependency at every level — personally and generationally.",
+    "The real story may not end up being the money, the prop firm, or the AI systems. It may be that he became proof that someone can come from chaos, teach themselves highly technical systems, merge creativity with infrastructure, stay deeply family-oriented, and build modern leverage without losing their humanity in the process.",
+  ],
+  /** @deprecated kept for any legacy 3D overlay consumers */
   paragraphs: [
     "Jamaur Johnson is a GoHighLevel ecosystem expert, AI automation architect, investor, trader, author, music creator, and digital systems strategist focused on building interconnected ecosystems across business, technology, creativity, and financial infrastructure.",
     "His work spans SaaS consulting, AI automation systems, fintech, trading education, music production, media platforms, books, digital real estate, and online business architecture.",

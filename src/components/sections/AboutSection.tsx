@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { ABOUT } from "@/lib/portfolio-data";
 
 const PILLARS = [
   { label: "AI Automation", color: "from-cyan-400 to-blue-600" },
@@ -16,19 +18,25 @@ const PILLARS = [
 ];
 
 export function AboutSection() {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <section id="about" className="relative py-28 sm:py-40">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeader eyebrow="About Jamaur" title="A Builder of Digital Ecosystems" />
+        <SectionHeader eyebrow="About Jamaur" title={ABOUT.headline} />
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+        <p className="-mt-6 mb-12 text-center text-xs uppercase tracking-[0.32em] text-cyan-300/70">
+          {ABOUT.aliases}
+        </p>
+
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
           {/* Editorial photo pair */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mb-12 lg:mb-0"
+            className="relative mb-12 lg:mb-0 lg:sticky lg:top-24"
           >
             <div className="pointer-events-none absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-cyan-400/15 via-violet-500/15 to-transparent blur-3xl" />
 
@@ -60,27 +68,57 @@ export function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="space-y-5 text-base sm:text-lg text-white/75 leading-relaxed"
+              className="space-y-5 text-base sm:text-lg text-white/80 leading-relaxed"
             >
-              <p>
-                <span className="text-white font-medium">Jamaur Johnson</span> is a creator,
-                founder, author, trader, and builder of digital ecosystems. His work spans
-                AI automation, music, trading education, health, solar, finance, books, and
-                digital platforms.
-              </p>
-              <p>
-                His mission is to build systems that{" "}
-                <span className="text-cyan-300">elevate people</span>, unlock{" "}
-                <span className="text-violet-300">freedom</span>, and turn ideas into{" "}
-                <span className="text-fuchsia-300">real-world assets</span>.
-              </p>
-              <p className="text-white/55">
-                Every company, book, song, and platform is part of one larger story — a
-                long-range bet on creators, ownership, and consciousness.
-              </p>
+              {ABOUT.intro.map((p, i) => (
+                <p key={i} className={i === ABOUT.intro.length - 1 ? "text-white/65" : undefined}>
+                  {p}
+                </p>
+              ))}
             </motion.div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <AnimatePresence initial={false}>
+              {expanded && (
+                <motion.div
+                  key="extended"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  className="overflow-hidden"
+                >
+                  <div className="relative space-y-5 pt-2 text-base sm:text-lg text-white/70 leading-relaxed">
+                    <div className="absolute -left-3 top-2 bottom-2 w-px bg-gradient-to-b from-cyan-400/60 via-violet-500/30 to-transparent" />
+                    {ABOUT.extended.map((p, i) => (
+                      <motion.p
+                        key={i}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 + i * 0.07, duration: 0.5 }}
+                      >
+                        {p}
+                      </motion.p>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              aria-expanded={expanded}
+              className="group inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+            >
+              <span>{expanded ? "Collapse" : "Read the full story"}</span>
+              <span
+                className={`text-cyan-300 transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+              >
+                ↓
+              </span>
+            </button>
+
+            <div className="grid grid-cols-2 gap-3 pt-2">
               {PILLARS.map((p, i) => (
                 <motion.div
                   key={p.label}
