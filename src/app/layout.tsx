@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Orbitron, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { Providers } from "./providers";
 
 const space = Space_Grotesk({
   variable: "--font-space",
@@ -82,7 +84,8 @@ export default function RootLayout({
       className={`${space.variable} ${orbitron.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col noise">
-        {children}
+        <SmoothScroll />
+        <Providers>{children}</Providers>
 
         {/* GoHighLevel form/booking widget auto-resize helper.
             Loaded once globally so booking + form iframes resize correctly,

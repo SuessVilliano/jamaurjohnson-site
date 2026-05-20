@@ -43,7 +43,164 @@ export const HERO = {
   subtitle: "Author. Founder. Music Creator. AI Builder. Trader. Visionary.",
   description:
     "A digital universe of books, companies, music, platforms, and ideas built to elevate people, business, creativity, and financial freedom.",
+  roles: [
+    "GoHighLevel Ecosystem Expert",
+    "Founder",
+    "Author",
+    "Trader",
+    "AI Automation Architect",
+    "Music Creator",
+    "Investor",
+    "Father of 3",
+  ],
 };
+
+export const TRUST_BADGES = [
+  "AI Automation Architect",
+  "SaaS Systems Strategist",
+  "FinTech Builder",
+  "Investor & Trader",
+  "Music Creator",
+  "Digital Infrastructure Builder",
+  "Father of 3",
+];
+
+export const YOUTUBE_URL = "https://youtube.com/@suessvilliano";
+export const CONTACT_EMAIL = "contact@liv8.co";
+
+export const ABOUT = {
+  headline:
+    "Builder of Systems, Platforms, Media, and Modern Digital Infrastructure.",
+  paragraphs: [
+    "Jamaur Johnson is a GoHighLevel ecosystem expert, AI automation architect, investor, trader, author, music creator, and digital systems strategist focused on building interconnected ecosystems across business, technology, creativity, and financial infrastructure.",
+    "His work spans SaaS consulting, AI automation systems, fintech, trading education, music production, media platforms, books, digital real estate, and online business architecture.",
+    "As a father of three sons, Jamaur's mission extends beyond business. His work is rooted in ownership, freedom, legacy, creativity, and building systems that help people elevate their lives through technology, education, automation, and financial empowerment.",
+  ],
+};
+
+export type Pillar = {
+  key: "BUILD" | "TRADE" | "CREATE" | "ELEVATE";
+  tagline: string;
+  description: string;
+  gradient: string;
+  glow: string;
+};
+
+export const PILLARS: Pillar[] = [
+  {
+    key: "BUILD",
+    tagline: "Companies & infrastructure",
+    description:
+      "Companies, automation systems, SaaS infrastructure, AI tools, websites, and digital real estate.",
+    gradient: "from-cyan-400 to-blue-600",
+    glow: "rgba(78,224,255,0.5)",
+  },
+  {
+    key: "TRADE",
+    tagline: "Markets & capital",
+    description:
+      "Markets, fintech, funded trader ecosystems, investing, discipline, strategy, and financial systems.",
+    gradient: "from-violet-500 to-fuchsia-600",
+    glow: "rgba(139,92,246,0.5)",
+  },
+  {
+    key: "CREATE",
+    tagline: "Media & ideas",
+    description:
+      "Books, music, storytelling, media, education, creative technology, and consciousness.",
+    gradient: "from-fuchsia-500 to-pink-600",
+    glow: "rgba(255,97,211,0.5)",
+  },
+  {
+    key: "ELEVATE",
+    tagline: "Family & legacy",
+    description:
+      "Family, ownership, freedom, legacy, empowerment, health, growth, and community.",
+    gradient: "from-amber-400 to-orange-600",
+    glow: "rgba(251,191,36,0.5)",
+  },
+];
+
+export type Social = {
+  platform: string;
+  handle: string;
+  url: string;
+  blurb: string;
+};
+
+export const SOCIALS: Social[] = [
+  {
+    platform: "YouTube",
+    handle: "@suessvilliano",
+    url: "https://youtube.com/@suessvilliano",
+    blurb: "Building in public — systems, trading, music, and the ecosystem.",
+  },
+  {
+    platform: "Instagram",
+    handle: "@jamaurjohnson",
+    url: "https://instagram.com/jamaurjohnson",
+    blurb: "Daily build moments, behind-the-scenes, vortex shots.",
+  },
+  {
+    platform: "X / Twitter",
+    handle: "@jamaurjohnson",
+    url: "https://twitter.com/jamaurjohnson",
+    blurb: "Strategy, AI, fintech, and ecosystem thinking in real time.",
+  },
+  {
+    platform: "LinkedIn",
+    handle: "Jamaur Johnson",
+    url: "https://linkedin.com/in/jamaurjohnson",
+    blurb: "The professional record — automation, SaaS, and digital infrastructure.",
+  },
+];
+
+export type Portrait = {
+  id: string;
+  src: string;
+  alt: string;
+  gradient: string;
+  caption: string;
+  scene: string;
+};
+
+export const PORTRAITS: Portrait[] = [
+  {
+    id: "cyber",
+    src: "/photos/portrait-press.jpg",
+    alt: "Jamaur Johnson — press portrait",
+    gradient: "from-cyan-500 via-blue-700 to-violet-900",
+    caption: "The Command Center",
+    scene: "Where systems, markets, and AI converge.",
+  },
+  {
+    id: "street",
+    src: "/photos/portrait-street.jpg",
+    alt: "Jamaur Johnson — street portrait",
+    gradient: "from-indigo-500 via-blue-800 to-slate-900",
+    caption: "Always In Motion",
+    scene: "A modern digital nomad and ecosystem builder.",
+  },
+  {
+    id: "neon",
+    src: "/photos/portrait-neon.jpg",
+    alt: "Jamaur Johnson — neon portrait",
+    gradient: "from-fuchsia-600 via-violet-700 to-blue-800",
+    caption: "Inside The Vortex",
+    scene: "Creating in the space between worlds.",
+  },
+  {
+    id: "noir",
+    src: "/photos/portrait-bw.jpg",
+    alt: "Jamaur Johnson — black & white portrait",
+    gradient: "from-slate-700 via-slate-900 to-black",
+    caption: "Clarity in Stillness",
+    scene: "The author. The strategist. The father.",
+  },
+];
+
+export const portraitById = (id: string): Portrait =>
+  PORTRAITS.find((p) => p.id === id) ?? PORTRAITS[0];
 
 export const WORLDS: World[] = [
   {

@@ -6,7 +6,7 @@ import { GlassButton } from "@/components/ui/GlassButton";
 import { useLeadModal } from "@/components/lead/LeadModalContext";
 
 export function ContactSection() {
-  const { openCalendar, openForm } = useLeadModal();
+  const { openCalendar, openQuestionnaire } = useLeadModal();
 
   return (
     <section id="contact" className="relative py-28 sm:py-40">
@@ -66,7 +66,7 @@ export function ContactSection() {
                 <GlassButton onClick={openCalendar} size="lg" variant="ghost">
                   Book a Call
                 </GlassButton>
-                <GlassButton onClick={openForm} size="lg" variant="soft">
+                <GlassButton onClick={openQuestionnaire} size="lg" variant="soft">
                   Get Started
                 </GlassButton>
               </div>

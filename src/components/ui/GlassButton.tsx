@@ -15,6 +15,8 @@ type Props = {
   size?: Size;
   className?: string;
   onClick?: () => void;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 };
 
 const sizeMap: Record<Size, string> = {
@@ -41,11 +43,14 @@ export function GlassButton({
   size = "md",
   className = "",
   onClick,
+  type,
+  disabled,
 }: Props) {
   const base =
     "relative inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-tight transition-all duration-300 active:scale-[0.98] will-change-transform";
 
-  const cls = `${base} ${sizeMap[size]} ${variantMap[variant]} ${className}`;
+  const disabledCls = disabled ? "opacity-40 cursor-not-allowed pointer-events-none" : "";
+  const cls = `${base} ${sizeMap[size]} ${variantMap[variant]} ${disabledCls} ${className}`;
 
   if (href) {
     const isExternal = external ?? /^https?:\/\//.test(href);
@@ -74,10 +79,12 @@ export function GlassButton({
 
   return (
     <motion.button
+      type={type}
       onClick={onClick}
+      disabled={disabled}
       className={cls}
-      whileHover={HOVER}
-      whileTap={TAP}
+      whileHover={disabled ? undefined : HOVER}
+      whileTap={disabled ? undefined : TAP}
     >
       {children}
     </motion.button>

@@ -2,13 +2,13 @@
 
 import { createContext, useContext, useState, type ReactNode } from "react";
 
-/** Which GHL embed the lead modal is currently showing. */
-export type LeadView = "calendar" | "form";
+/** Which lead-capture view is currently showing. */
+export type LeadView = "calendar" | "questionnaire";
 
 type Ctx = {
   view: LeadView | null;
   openCalendar: () => void;
-  openForm: () => void;
+  openQuestionnaire: () => void;
   close: () => void;
 };
 
@@ -22,7 +22,7 @@ export function LeadModalProvider({ children }: { children: ReactNode }) {
       value={{
         view,
         openCalendar: () => setView("calendar"),
-        openForm: () => setView("form"),
+        openQuestionnaire: () => setView("questionnaire"),
         close: () => setView(null),
       }}
     >

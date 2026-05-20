@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useLeadModal } from "@/components/lead/LeadModalContext";
 
@@ -18,7 +19,11 @@ export function Nav() {
   const { scrollY } = useScroll();
   const bgOpacity = useTransform(scrollY, [0, 200], [0, 0.7]);
   const [open, setOpen] = useState(false);
-  const { openCalendar } = useLeadModal();
+  const { openQuestionnaire } = useLeadModal();
+  const pathname = usePathname();
+  const onThreeD = pathname === "/3d";
+  const toggleHref = onThreeD ? "/" : "/3d";
+  const toggleLabel = onThreeD ? "Classic" : "3D Mode";
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -48,7 +53,7 @@ export function Nav() {
             JAMAUR
           </Link>
 
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-7">
             {LINKS.map((l) => (
               <li key={l.href}>
                 <a
@@ -61,12 +66,21 @@ export function Nav() {
             ))}
           </ul>
 
-          <button
-            onClick={openCalendar}
-            className="hidden md:inline-flex h-10 items-center rounded-full px-5 text-sm text-white bg-gradient-to-r from-cyan-400/80 to-violet-500/80 hover:shadow-[0_10px_40px_-10px_rgba(78,224,255,0.6)] transition-shadow"
-          >
-            Book a Call
-          </button>
+          <div className="hidden md:flex items-center gap-3">
+            <Link
+              href={toggleHref}
+              className="inline-flex h-9 items-center gap-1.5 rounded-full glass px-3.5 text-xs uppercase tracking-[0.18em] text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+            >
+              <span className="text-cyan-300">✦</span>
+              {toggleLabel}
+            </Link>
+            <button
+              onClick={openQuestionnaire}
+              className="inline-flex h-10 items-center rounded-full px-5 text-sm text-white bg-gradient-to-r from-cyan-400/80 to-violet-500/80 hover:shadow-[0_10px_40px_-10px_rgba(78,224,255,0.6)] transition-shadow"
+            >
+              Get Started
+            </button>
+          </div>
 
           <button
             aria-label="Toggle menu"
@@ -95,9 +109,9 @@ export function Nav() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-40 md:hidden bg-black/85 backdrop-blur-2xl pt-20"
+          className="fixed inset-0 z-40 md:hidden bg-black/85 backdrop-blur-2xl pt-20 overflow-y-auto"
         >
-          <ul className="flex flex-col items-center gap-7 mt-10">
+          <ul className="flex flex-col items-center gap-7 mt-10 pb-12">
             {LINKS.map((l, i) => (
               <motion.li
                 key={l.href}
@@ -115,18 +129,30 @@ export function Nav() {
                 </a>
               </motion.li>
             ))}
-            <motion.button
+            <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 * LINKS.length }}
-              onClick={() => {
-                setOpen(false);
-                openCalendar();
-              }}
-              className="mt-4 inline-flex h-12 items-center rounded-full px-7 text-base text-white bg-gradient-to-r from-cyan-400/80 to-violet-500/80"
+              className="mt-4 flex flex-col items-center gap-3"
             >
-              Book a Call
-            </motion.button>
+              <Link
+                href={toggleHref}
+                onClick={() => setOpen(false)}
+                className="inline-flex h-10 items-center gap-1.5 rounded-full glass px-4 text-xs uppercase tracking-[0.18em] text-white/80"
+              >
+                <span className="text-cyan-300">✦</span>
+                {toggleLabel}
+              </Link>
+              <button
+                onClick={() => {
+                  setOpen(false);
+                  openQuestionnaire();
+                }}
+                className="inline-flex h-12 items-center rounded-full px-7 text-base text-white bg-gradient-to-r from-cyan-400/80 to-violet-500/80"
+              >
+                Get Started
+              </button>
+            </motion.div>
           </ul>
         </motion.div>
       )}

@@ -11,7 +11,7 @@ function resend(): Resend | null {
   return _resend;
 }
 
-export type LeadSource = "exit-intent" | "book-a-call" | "chat";
+export type LeadSource = "exit-intent" | "book-a-call" | "chat" | "questionnaire";
 
 export type LeadPayload = {
   source: LeadSource;
@@ -31,6 +31,7 @@ const SOURCE_LABEL: Record<LeadSource, string> = {
   "exit-intent": "EXIT INTENT",
   "book-a-call": "BOOK A CALL",
   chat: "CHAT LEAD",
+  questionnaire: "GET STARTED QUESTIONNAIRE",
 };
 
 function escapeHtml(s: string) {
