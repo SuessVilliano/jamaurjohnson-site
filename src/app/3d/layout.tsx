@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SmoothScroll } from "@/components/providers/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "3D Experience",
@@ -8,5 +9,10 @@ export const metadata: Metadata = {
 };
 
 export default function ThreeDLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <SmoothScroll />
+      {children}
+    </>
+  );
 }
