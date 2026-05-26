@@ -197,6 +197,104 @@ body:has(.perspective-root) iframe[src*="chat-widget"] {
   display: none !important;
 }
 
+/* ============================================================
+   Light theme for the /perspective editorial surface.
+   Toggled by adding .perspective-light to .perspective-root via
+   src/components/perspective/ThemeToggle.tsx (localStorage-backed).
+   Scoped overrides keep the dark theme untouched on every other route.
+   ============================================================ */
+
+.perspective-root.perspective-light {
+  background: #f5efe1;
+  color: #1a1a1f;
+}
+
+/* Backgrounds */
+.perspective-root.perspective-light .bg-\[\#06080f\],
+.perspective-root.perspective-light .bg-\[\#06080f\]\/85,
+.perspective-root.perspective-light .bg-\[\#06080f\]\/95,
+.perspective-root.perspective-light .bg-\[\#06080f\]\/75 {
+  background-color: rgba(245, 239, 225, 0.92) !important;
+}
+.perspective-root.perspective-light .bg-\[\#0a0f1d\],
+.perspective-root.perspective-light .bg-\[\#0c111c\],
+.perspective-root.perspective-light .bg-\[\#0f141f\] {
+  background-color: #ffffff !important;
+}
+.perspective-root.perspective-light .bg-\[\#0f1626\] {
+  background-color: #faf4e8 !important;
+}
+.perspective-root.perspective-light .bg-\[\#080c16\],
+.perspective-root.perspective-light .bg-\[\#04060c\] {
+  background-color: #ede5d3 !important;
+}
+.perspective-root.perspective-light .bg-\[\#1a1612\] {
+  background-color: #ede5d3 !important;
+}
+
+/* Gradient hero card — soften the warm-dark gradient to a warm-light one */
+.perspective-root.perspective-light .bg-gradient-to-br.from-\[\#1a1612\].via-\[\#0a0f1d\].to-\[\#06080f\],
+.perspective-root.perspective-light .bg-gradient-to-br.from-\[\#1a1612\].via-\[\#0f141f\].to-\[\#0a0f1d\] {
+  background: linear-gradient(135deg, #faf3df 0%, #ffffff 50%, #ede5d3 100%) !important;
+}
+
+/* Translucent white overlays (cards, dividers in dark mode) */
+.perspective-root.perspective-light .bg-white\/5 { background-color: rgba(26, 26, 31, 0.04) !important; }
+.perspective-root.perspective-light .bg-white\/8 { background-color: rgba(26, 26, 31, 0.06) !important; }
+.perspective-root.perspective-light .bg-white\/10 { background-color: rgba(26, 26, 31, 0.08) !important; }
+
+/* Text */
+.perspective-root.perspective-light .text-\[\#f4ede0\] { color: #1a1a1f !important; }
+.perspective-root.perspective-light .text-\[\#f4ede0\]\/85 { color: rgba(26, 26, 31, 0.88) !important; }
+.perspective-root.perspective-light .text-\[\#f4ede0\]\/80 { color: rgba(26, 26, 31, 0.82) !important; }
+.perspective-root.perspective-light .text-\[\#f4ede0\]\/75 { color: rgba(26, 26, 31, 0.78) !important; }
+.perspective-root.perspective-light .text-\[\#f4ede0\]\/70 { color: rgba(26, 26, 31, 0.72) !important; }
+.perspective-root.perspective-light .text-\[\#f4ede0\]\/65 { color: rgba(26, 26, 31, 0.68) !important; }
+.perspective-root.perspective-light .text-\[\#f4ede0\]\/60 { color: rgba(26, 26, 31, 0.62) !important; }
+.perspective-root.perspective-light .text-\[\#f4ede0\]\/55 { color: rgba(26, 26, 31, 0.58) !important; }
+.perspective-root.perspective-light .text-\[\#f4ede0\]\/50 { color: rgba(26, 26, 31, 0.55) !important; }
+.perspective-root.perspective-light .text-\[\#f4ede0\]\/45 { color: rgba(26, 26, 31, 0.52) !important; }
+.perspective-root.perspective-light .text-\[\#f4ede0\]\/40 { color: rgba(26, 26, 31, 0.48) !important; }
+.perspective-root.perspective-light .text-\[\#f4ede0\]\/35 { color: rgba(26, 26, 31, 0.44) !important; }
+.perspective-root.perspective-light .text-\[\#f4ede0\]\/30 { color: rgba(26, 26, 31, 0.4) !important; }
+
+/* Placeholder text on inputs */
+.perspective-root.perspective-light .placeholder\:text-\[\#f4ede0\]\/35::placeholder,
+.perspective-root.perspective-light .placeholder\:text-\[\#f4ede0\]\/30::placeholder {
+  color: rgba(26, 26, 31, 0.45) !important;
+}
+
+/* Gold accent — darken for AA contrast on the warm-cream background */
+.perspective-root.perspective-light .text-\[\#c2a567\] { color: #8a6f2f !important; }
+.perspective-root.perspective-light .text-\[\#c2a567\]\/85 { color: rgba(138, 111, 47, 0.95) !important; }
+.perspective-root.perspective-light .text-\[\#c2a567\]\/80 { color: rgba(138, 111, 47, 0.9) !important; }
+.perspective-root.perspective-light .text-\[\#c2a567\]\/70 { color: rgba(138, 111, 47, 0.85) !important; }
+.perspective-root.perspective-light .text-\[\#c2a567\]\/60 { color: rgba(138, 111, 47, 0.75) !important; }
+.perspective-root.perspective-light .text-\[\#c2a567\]\/50 { color: rgba(138, 111, 47, 0.65) !important; }
+.perspective-root.perspective-light .text-\[\#c2a567\]\/40 { color: rgba(138, 111, 47, 0.55) !important; }
+.perspective-root.perspective-light .text-\[\#e9d5a3\] { color: #6e5727 !important; }
+
+/* Drop-cap on articles */
+.perspective-root.perspective-light .first-letter\:text-\[\#c2a567\]::first-letter {
+  color: #8a6f2f !important;
+}
+
+/* Borders */
+.perspective-root.perspective-light .border-white\/15 { border-color: rgba(0, 0, 0, 0.14) !important; }
+.perspective-root.perspective-light .border-white\/10 { border-color: rgba(0, 0, 0, 0.10) !important; }
+.perspective-root.perspective-light .border-white\/8 { border-color: rgba(0, 0, 0, 0.08) !important; }
+.perspective-root.perspective-light .border-white\/5 { border-color: rgba(0, 0, 0, 0.06) !important; }
+.perspective-root.perspective-light .border-y.border-white\/8 { border-color: rgba(0, 0, 0, 0.08) !important; }
+.perspective-root.perspective-light .divide-white\/8 > * + * { border-color: rgba(0, 0, 0, 0.08) !important; }
+
+/* Gold tinted backgrounds remain warm; reduce intensity slightly */
+.perspective-root.perspective-light .bg-\[\#c2a567\]\/10 { background-color: rgba(194, 165, 103, 0.14) !important; }
+.perspective-root.perspective-light .bg-\[\#c2a567\]\/15 { background-color: rgba(194, 165, 103, 0.18) !important; }
+.perspective-root.perspective-light .bg-\[\#c2a567\]\/20 { background-color: rgba(194, 165, 103, 0.22) !important; }
+
+/* The solid gold pill (Request Audit, primary CTAs) — keep as-is; the
+   #0a0f1d text on a gold background works in both themes. */
+
 /* Noise overlay */
 .noise::after {
   content: "";

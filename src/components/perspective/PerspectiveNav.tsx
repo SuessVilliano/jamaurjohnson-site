@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { NAV_LINKS, PERSPECTIVE_META } from "@/lib/perspective-content";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function PerspectiveNav({ onRequestAudit }: { onRequestAudit: () => void }) {
   const [scrolled, setScrolled] = useState(false);
@@ -56,12 +57,15 @@ export function PerspectiveNav({ onRequestAudit }: { onRequestAudit: () => void 
             ))}
           </ul>
 
-          <button
-            onClick={onRequestAudit}
-            className="hidden md:inline-flex h-10 items-center rounded-full border border-[#c2a567]/40 bg-[#c2a567]/10 px-5 text-xs uppercase tracking-[0.22em] text-[#e9d5a3] transition-colors hover:bg-[#c2a567]/20"
-          >
-            Request Audit
-          </button>
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
+            <button
+              onClick={onRequestAudit}
+              className="inline-flex h-10 items-center rounded-full border border-[#c2a567]/40 bg-[#c2a567]/10 px-5 text-xs uppercase tracking-[0.22em] text-[#e9d5a3] transition-colors hover:bg-[#c2a567]/20"
+            >
+              Request Audit
+            </button>
+          </div>
 
           <button
             aria-label="Toggle menu"
@@ -100,15 +104,18 @@ export function PerspectiveNav({ onRequestAudit }: { onRequestAudit: () => void 
                 </a>
               </li>
             ))}
-            <button
-              onClick={() => {
-                setOpen(false);
-                onRequestAudit();
-              }}
-              className="mt-3 inline-flex h-12 items-center rounded-full border border-[#c2a567]/40 bg-[#c2a567]/15 px-7 text-xs uppercase tracking-[0.22em] text-[#e9d5a3]"
-            >
-              Request Audit
-            </button>
+            <div className="mt-3 flex flex-col items-center gap-3">
+              <ThemeToggle />
+              <button
+                onClick={() => {
+                  setOpen(false);
+                  onRequestAudit();
+                }}
+                className="inline-flex h-12 items-center rounded-full border border-[#c2a567]/40 bg-[#c2a567]/15 px-7 text-xs uppercase tracking-[0.22em] text-[#e9d5a3]"
+              >
+                Request Audit
+              </button>
+            </div>
           </ul>
         </div>
       )}

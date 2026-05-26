@@ -66,14 +66,28 @@ export function AuditForm() {
     }
   }
 
+  function reset() {
+    setStatus("idle");
+    setError(null);
+    setForm({ name: "", business: "", email: "", phone: "", website: "", hardest: "" });
+  }
+
   if (status === "success") {
     return (
       <div
         ref={successRef}
         role="status"
         aria-live="polite"
-        className="rounded-2xl border border-[#c2a567]/40 bg-gradient-to-br from-[#1a1612] via-[#0f141f] to-[#0a0f1d] p-8 text-center shadow-[0_30px_80px_-30px_rgba(194,165,103,0.4)]"
+        className="relative rounded-2xl border border-[#c2a567]/40 bg-gradient-to-br from-[#1a1612] via-[#0f141f] to-[#0a0f1d] p-8 text-center shadow-[0_30px_80px_-30px_rgba(194,165,103,0.4)]"
       >
+        <button
+          type="button"
+          onClick={reset}
+          aria-label="Close confirmation and start a new request"
+          className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-base text-[#f4ede0]/65 transition-colors hover:border-[#c2a567]/40 hover:text-[#e9d5a3]"
+        >
+          ✕
+        </button>
         <div className="mx-auto mb-5 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#c2a567]/20 text-2xl text-[#e9d5a3]">
           ✓
         </div>
@@ -91,9 +105,13 @@ export function AuditForm() {
           <span className="text-[#f4ede0]">{form.business}</span> and reach back out at{" "}
           <span className="text-[#f4ede0]">{form.email}</span> within one business day.
         </p>
-        <p className="mt-4 text-[11px] uppercase tracking-[0.28em] text-[#f4ede0]/45">
-          You can close this tab — your request is safe with us.
-        </p>
+        <button
+          type="button"
+          onClick={reset}
+          className="mt-6 inline-flex h-10 items-center rounded-full border border-white/15 px-5 text-[10px] uppercase tracking-[0.28em] text-[#f4ede0]/80 transition-colors hover:border-[#c2a567]/40 hover:text-[#e9d5a3]"
+        >
+          Submit Another Request
+        </button>
       </div>
     );
   }
