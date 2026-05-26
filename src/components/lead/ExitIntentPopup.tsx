@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Modal } from "./Modal";
 import { GlassButton } from "@/components/ui/GlassButton";
 import { useLeadModal } from "./LeadModalContext";
-import { trackEvent } from "@/lib/analytics";
+import { CONVERSION_CURRENCY, CONVERSION_VALUE, trackEvent } from "@/lib/analytics";
 
 const STORAGE_KEY = "jamaur:exit-intent:dismissed-at";
 const SUPPRESS_DAYS = 7;
@@ -87,6 +87,8 @@ export function ExitIntentPopup() {
       trackEvent("exit_intent_email", {
         event_category: "lead",
         event_label: "exit intent capture",
+        value: CONVERSION_VALUE.exit_intent_email,
+        currency: CONVERSION_CURRENCY,
       });
       setStatus("success");
       if (typeof window !== "undefined") {
