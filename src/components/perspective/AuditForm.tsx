@@ -1,11 +1,11 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { AUDIT_FORM } from "@/lib/perspective-content";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export function AuditForm({ compact = false }: { compact?: boolean }) {
+export function AuditForm() {
   const nameId = useId();
   const businessId = useId();
   const emailId = useId();
@@ -23,6 +23,15 @@ export function AuditForm({ compact = false }: { compact?: boolean }) {
     website: "",
     hardest: "",
   });
+
+  // Scroll the confirmation card into view on success so visitors who
+  // submitted from the sidebar (especially on mobile) can see the response.
+  const successRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (status === "success") {
+      successRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [status]);
 
   function update<K extends keyof typeof form>(k: K, v: string) {
     setForm((f) => ({ ...f, [k]: v }));
@@ -59,19 +68,31 @@ export function AuditForm({ compact = false }: { compact?: boolean }) {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-[#c2a567]/30 bg-[#0f141f] p-8 text-center">
-        <div className="mx-auto mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#c2a567]/15 text-xl text-[#e9d5a3]">
+      <div
+        ref={successRef}
+        role="status"
+        aria-live="polite"
+        className="rounded-2xl border border-[#c2a567]/40 bg-gradient-to-br from-[#1a1612] via-[#0f141f] to-[#0a0f1d] p-8 text-center shadow-[0_30px_80px_-30px_rgba(194,165,103,0.4)]"
+      >
+        <div className="mx-auto mb-5 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#c2a567]/20 text-2xl text-[#e9d5a3]">
           ✓
         </div>
+        <div className="text-[10px] uppercase tracking-[0.32em] text-[#c2a567]/85">
+          Audit Request Received
+        </div>
         <h3
-          className="text-xl text-[#f4ede0]"
+          className="mt-3 text-2xl leading-tight text-[#f4ede0]"
           style={{ fontFamily: "var(--font-editorial)" }}
         >
-          Audit request received
+          Thank you, {form.name.split(" ")[0]}.
         </h3>
-        <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-[#f4ede0]/65">
-          Jamaur&apos;s team will review your business and reach back out at{" "}
+        <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-[#f4ede0]/70">
+          Jamaur&apos;s team will personally review what you shared about{" "}
+          <span className="text-[#f4ede0]">{form.business}</span> and reach back out at{" "}
           <span className="text-[#f4ede0]">{form.email}</span> within one business day.
+        </p>
+        <p className="mt-4 text-[11px] uppercase tracking-[0.28em] text-[#f4ede0]/45">
+          You can close this tab — your request is safe with us.
         </p>
       </div>
     );
@@ -80,7 +101,7 @@ export function AuditForm({ compact = false }: { compact?: boolean }) {
   return (
     <form
       onSubmit={submit}
-      className={`rounded-2xl border border-white/10 bg-[#0c111c] p-6 sm:p-7 ${compact ? "" : "shadow-[0_30px_80px_-30px_rgba(194,165,103,0.25)]"}`}
+      className="rounded-2xl border border-white/10 bg-[#0c111c] p-6 sm:p-7 shadow-[0_30px_80px_-30px_rgba(194,165,103,0.25)]"
     >
       <div className="text-[10px] uppercase tracking-[0.32em] text-[#c2a567]/90">
         {AUDIT_FORM.eyebrow}
@@ -99,7 +120,7 @@ export function AuditForm({ compact = false }: { compact?: boolean }) {
         <Field id={emailId} label="Email" type="email" value={form.email} onChange={(v) => update("email", v)} required />
         <Field id={phoneId} label="Phone" type="tel" value={form.phone} onChange={(v) => update("phone", v)} />
         <div className="sm:col-span-2">
-          <Field id={websiteId} label="Website" type="url" value={form.website} onChange={(v) => update("website", v)} placeholder="https://" />
+          <Field id={websiteId} label="Website" type="text" value={form.website} onChange={(v) => update("website", v)} placeholder="yourbusiness.com" />
         </div>
         <div className="sm:col-span-2">
           <label htmlFor={hardestId} className="mb-2 block text-[10px] uppercase tracking-[0.28em] text-[#f4ede0]/55">

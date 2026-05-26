@@ -64,7 +64,7 @@ export function PerspectiveHero({ onRequestAudit }: { onRequestAudit: () => void
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#1a1612] via-[#0a0f1d] to-[#06080f] shadow-[0_50px_140px_-40px_rgba(0,0,0,0.9)]">
             {!imgError && (
               <Image
-                src="/photos/portrait-lounge.jpg"
+                src="/photos/portrait-lounge.png"
                 alt="Jamaur Johnson, photographed in a luxury lounge — a feature portrait for LIV8 Perspective."
                 fill
                 priority

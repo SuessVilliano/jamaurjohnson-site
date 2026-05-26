@@ -17,12 +17,17 @@ export function Modal({ open, onClose, children, ariaLabel, maxWidth = "max-w-lg
     if (!open) return;
     const original = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    // Adds a body class so global page chrome (like the GoHighLevel chat
+    // bubble in the root layout) can hide itself via CSS when a modal is
+    // covering the screen.
+    document.body.classList.add("jamaur-modal-open");
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = original;
+      document.body.classList.remove("jamaur-modal-open");
       window.removeEventListener("keydown", onKey);
     };
   }, [open, onClose]);

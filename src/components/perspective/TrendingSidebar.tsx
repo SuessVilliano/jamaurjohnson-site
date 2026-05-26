@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { TRENDING_INSIGHTS } from "@/lib/perspective-content";
 import { AuditForm } from "./AuditForm";
 
@@ -11,24 +12,29 @@ export function TrendingSidebar() {
         </div>
         <ol className="mt-5 space-y-5">
           {TRENDING_INSIGHTS.map((i, idx) => (
-            <li key={i.title} className="group flex gap-4">
-              <span
-                className="text-2xl text-[#c2a567]/40 transition-colors group-hover:text-[#c2a567]/70"
-                style={{ fontFamily: "var(--font-editorial)" }}
+            <li key={i.slug}>
+              <Link
+                href={`/perspective/insights/${i.slug}`}
+                className="group flex gap-4"
               >
-                {String(idx + 1).padStart(2, "0")}
-              </span>
-              <div className="flex-1">
-                <div className="text-[10px] uppercase tracking-[0.28em] text-[#f4ede0]/45">
-                  {i.category} · {i.minutes} min
-                </div>
-                <h4
-                  className="mt-1 text-[17px] leading-[1.3] text-[#f4ede0] transition-colors group-hover:text-[#e9d5a3]"
+                <span
+                  className="text-2xl text-[#c2a567]/40 transition-colors group-hover:text-[#c2a567]/70"
                   style={{ fontFamily: "var(--font-editorial)" }}
                 >
-                  {i.title}
-                </h4>
-              </div>
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+                <div className="flex-1">
+                  <div className="text-[10px] uppercase tracking-[0.28em] text-[#f4ede0]/45">
+                    {i.category} · {i.minutes} min
+                  </div>
+                  <h4
+                    className="mt-1 text-[17px] leading-[1.3] text-[#f4ede0] transition-colors group-hover:text-[#e9d5a3]"
+                    style={{ fontFamily: "var(--font-editorial)" }}
+                  >
+                    {i.title}
+                  </h4>
+                </div>
+              </Link>
             </li>
           ))}
         </ol>
