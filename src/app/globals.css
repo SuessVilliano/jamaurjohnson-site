@@ -171,6 +171,32 @@ body {
   }
 }
 
+/* Hide the global GoHighLevel chat bubble whenever a modal is open so it
+   doesn't visually overlap the modal on mobile (it sits at z-index 99999+
+   and we can't outrank it from inside the modal). */
+body.jamaur-modal-open [id*="chat-widget"],
+body.jamaur-modal-open [id*="lc_chat_widget"],
+body.jamaur-modal-open [id*="leadconnector"],
+body.jamaur-modal-open [class*="chat-widget"],
+body.jamaur-modal-open [class*="leadconnector"],
+body.jamaur-modal-open iframe[src*="leadconnector"],
+body.jamaur-modal-open iframe[src*="chat-widget"] {
+  display: none !important;
+}
+
+/* Same suppression scoped to the /perspective editorial surface so the
+   bubble never appears on the LIV8 Perspective brand. The .perspective-root
+   class is set by src/app/perspective/layout.tsx. */
+body:has(.perspective-root) [id*="chat-widget"],
+body:has(.perspective-root) [id*="lc_chat_widget"],
+body:has(.perspective-root) [id*="leadconnector"],
+body:has(.perspective-root) [class*="chat-widget"],
+body:has(.perspective-root) [class*="leadconnector"],
+body:has(.perspective-root) iframe[src*="leadconnector"],
+body:has(.perspective-root) iframe[src*="chat-widget"] {
+  display: none !important;
+}
+
 /* Noise overlay */
 .noise::after {
   content: "";
