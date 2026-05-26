@@ -51,6 +51,7 @@ Copy `.env.example` to `.env.local` and fill in:
 | `RESEND_FROM`        | Optional sender override. Defaults to Resend's onboarding address — fine until you verify a domain. |
 | `AI_GATEWAY_API_KEY` | Powers `/api/chat`. Grab from [vercel.com/ai-gateway](https://vercel.com/ai-gateway). Auto-injected on Vercel via OIDC. |
 | `CHAT_MODEL`         | Optional. Defaults to `anthropic/claude-sonnet-4.5`. Use any AI Gateway model string.         |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics 4 Measurement ID (`G-XXXXXXXXXX`). Mount `<GoogleAnalytics>` site-wide when set; safe no-op when missing. |
 
 On Vercel, set these in **Project Settings → Environment Variables** (or `vercel env add` from the CLI).
 

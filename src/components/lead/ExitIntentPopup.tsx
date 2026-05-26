@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Modal } from "./Modal";
 import { GlassButton } from "@/components/ui/GlassButton";
 import { useLeadModal } from "./LeadModalContext";
+import { trackEvent } from "@/lib/analytics";
 
 const STORAGE_KEY = "jamaur:exit-intent:dismissed-at";
 const SUPPRESS_DAYS = 7;
@@ -83,6 +84,10 @@ export function ExitIntentPopup() {
       });
       const json = await res.json();
       if (!res.ok || !json.ok) throw new Error(json?.error ?? "Submission failed");
+      trackEvent("exit_intent_email", {
+        event_category: "lead",
+        event_label: "exit intent capture",
+      });
       setStatus("success");
       if (typeof window !== "undefined") {
         window.localStorage.setItem(STORAGE_KEY, String(Date.now()));
