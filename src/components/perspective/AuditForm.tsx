@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { AUDIT_FORM } from "@/lib/perspective-content";
+import { CONVERSION_CURRENCY, CONVERSION_VALUE, trackEvent } from "@/lib/analytics";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -59,6 +60,13 @@ export function AuditForm() {
       });
       const json = await res.json();
       if (!res.ok || !json.ok) throw new Error(json?.error ?? "Submission failed");
+      trackEvent("audit_request", {
+        event_category: "lead",
+        event_label: "LIV8 Perspective",
+        business: form.business,
+        value: CONVERSION_VALUE.audit_request,
+        currency: CONVERSION_CURRENCY,
+      });
       setStatus("success");
     } catch (err) {
       setStatus("error");

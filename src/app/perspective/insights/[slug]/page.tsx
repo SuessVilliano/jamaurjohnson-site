@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { INSIGHTS_POSTS, PERSPECTIVE_META } from "@/lib/perspective-content";
 import { PerspectiveFooter } from "@/components/perspective/PerspectiveFooter";
+import { TrackArticleView } from "@/components/perspective/TrackArticleView";
 
 export const dynamicParams = false;
 
@@ -69,6 +70,12 @@ export default async function InsightPostPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <TrackArticleView
+        slug={post.slug}
+        category={post.category}
+        title={post.title}
+        minutes={post.minutes}
       />
 
       {/* Header */}

@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Orbitron, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { Providers } from "./providers";
+
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 const space = Space_Grotesk({
   variable: "--font-space",
@@ -207,6 +210,12 @@ export default function RootLayout({
           data-widget-id="6a0b30308dd781334c57af7c"
           strategy="afterInteractive"
         />
+
+        {/* Google Analytics 4. Mounts only when NEXT_PUBLIC_GA_MEASUREMENT_ID
+            is set in Vercel — keeps preview branches clean if you ever want
+            to gate by environment, and the site stays safe to deploy without
+            a key set. Custom conversion events fire via src/lib/analytics.ts. */}
+        {GA_MEASUREMENT_ID && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
       </body>
     </html>
   );

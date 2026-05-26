@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Modal } from "./Modal";
 import { useLeadModal } from "./LeadModalContext";
 import { GlassButton } from "@/components/ui/GlassButton";
+import { CONVERSION_CURRENCY, CONVERSION_VALUE, trackEvent } from "@/lib/analytics";
 import {
   BRANCHES,
   PATHS,
@@ -69,6 +70,11 @@ export function GetStartedQuestionnaire() {
   }
 
   function pickPath(p: PathId) {
+    trackEvent("questionnaire_path", {
+      event_category: "engagement",
+      event_label: p,
+      path: p,
+    });
     setPath(p);
     setQuestionIndex(0);
     setPhase("questions");
@@ -172,6 +178,13 @@ export function GetStartedQuestionnaire() {
       });
       const json = await res.json();
       if (!res.ok || !json.ok) throw new Error(json?.error ?? "Submission failed");
+      trackEvent("questionnaire_submit", {
+        event_category: "lead",
+        event_label: path ?? "unknown",
+        path: path ?? undefined,
+        value: CONVERSION_VALUE.questionnaire_submit,
+        currency: CONVERSION_CURRENCY,
+      });
       setSubmitStatus("idle");
       setPhase("success");
     } catch (err) {
