@@ -7,6 +7,7 @@ import {
   PERSPECTIVE_META,
 } from "@/lib/perspective-content";
 import { PerspectiveFooter } from "@/components/perspective/PerspectiveFooter";
+import { ThemeToggle } from "@/components/perspective/ThemeToggle";
 import { TrackArticleView } from "@/components/perspective/TrackArticleView";
 
 export const dynamicParams = false;
@@ -145,6 +146,7 @@ export default async function InsightPostPage({
   return (
     <main
       className="relative bg-[var(--p-bg)] text-[var(--p-text)]"
+      data-theme={theme}
       style={themeStyle}
     >
       <script
@@ -169,13 +171,16 @@ export default async function InsightPostPage({
           }}
         />
         <div className="relative mx-auto max-w-3xl px-5 sm:px-8">
-          <Link
-            href="/perspective#insights"
-            className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.32em] text-[var(--p-text-faint)] transition-colors hover:text-[var(--p-accent-bright)]"
-          >
-            <span aria-hidden="true">←</span>
-            LIV8 Perspective · Back to feature
-          </Link>
+          <div className="flex items-center justify-between gap-4">
+            <Link
+              href="/perspective#insights"
+              className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.32em] text-[var(--p-text-faint)] transition-colors hover:text-[var(--p-accent-bright)]"
+            >
+              <span aria-hidden="true">←</span>
+              LIV8 Perspective · Back to feature
+            </Link>
+            <ThemeToggle />
+          </div>
 
           <div className="mt-8 flex items-center gap-3 text-[10px] uppercase tracking-[0.32em] text-[var(--p-accent-tint)]">
             <span

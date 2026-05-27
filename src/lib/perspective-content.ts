@@ -87,7 +87,7 @@ export const INSIGHTS_POSTS: InsightPost[] = [
     category: "Leverage",
     title: "Leverage Without The Margin Call",
     minutes: 5,
-    publishedDate: "May 2026",
+    publishedDate: "March 2026",
     theme: "hybrid",
     summary:
       "For decades, leverage meant risking more than you had. Funded-trader programs have quietly rewritten the math — and changed what serious retail trading actually looks like.",
@@ -107,7 +107,7 @@ export const INSIGHTS_POSTS: InsightPost[] = [
     category: "Risk",
     title: "The Seven Quiet Mistakes That Blow Most Trading Accounts",
     minutes: 7,
-    publishedDate: "April 2026",
+    publishedDate: "October 2025",
     theme: "hybrid",
     summary:
       "Most accounts don't get blown up by a bad trade. They get blown up by a pattern of small, invisible mistakes that the trader cannot see from inside.",
@@ -129,7 +129,7 @@ export const INSIGHTS_POSTS: InsightPost[] = [
     category: "Playbook",
     title: "The Free Playbook Quietly Changing How Funded Traders Approach Risk",
     minutes: 5,
-    publishedDate: "March 2026",
+    publishedDate: "December 2025",
     theme: "hybrid",
     summary:
       "Most evaluation guides read like brochures. The Hybrid Funding playbook reads like a risk manual. That single difference is changing how serious traders prepare.",
@@ -148,7 +148,7 @@ export const INSIGHTS_POSTS: InsightPost[] = [
     category: "Path",
     title: "From Demo To Funded — The Path Most Retail Traders Never See",
     minutes: 6,
-    publishedDate: "February 2026",
+    publishedDate: "July 2025",
     theme: "hybrid",
     summary:
       "The path from a fresh demo account to a funded one is shorter than most traders think — but only if they know what each stage is actually for.",

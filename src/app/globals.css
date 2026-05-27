@@ -295,6 +295,91 @@ body:has(.perspective-root) iframe[src*="chat-widget"] {
 /* The solid gold pill (Request Audit, primary CTAs) — keep as-is; the
    #0a0f1d text on a gold background works in both themes. */
 
+/* ============================================================
+   Insight-article light-theme overrides for the CSS-variable
+   driven theme system in src/app/perspective/insights/[slug]/page.tsx.
+   The page applies a dark per-theme palette as inline CSS variables;
+   these rules override the variables with light-mode values when the
+   user toggles the perspective surface to light. `!important` is
+   required because inline styles otherwise win over class rules.
+   ============================================================ */
+
+/* Editorial track (gold/cream) — light variant */
+.perspective-root.perspective-light main[data-theme="editorial"] {
+  --p-bg: #f5efe1 !important;
+  --p-surface: #ede5d3 !important;
+  --p-card: #ffffff !important;
+  --p-card-hover: #faf4e8 !important;
+  --p-border: rgba(0, 0, 0, 0.10) !important;
+  --p-border-hover: rgba(138, 111, 47, 0.32) !important;
+  --p-divider: rgba(0, 0, 0, 0.08) !important;
+  --p-accent: #8a6f2f !important;
+  --p-accent-bright: #6e5727 !important;
+  --p-accent-soft: rgba(138, 111, 47, 0.55) !important;
+  --p-accent-tint: rgba(138, 111, 47, 0.95) !important;
+  --p-accent-radial: rgba(138, 111, 47, 0.10) !important;
+  --p-text: #1a1a1f !important;
+  --p-text-soft: rgba(26, 26, 31, 0.82) !important;
+  --p-text-muted: rgba(26, 26, 31, 0.66) !important;
+  --p-text-faint: rgba(26, 26, 31, 0.55) !important;
+  --p-text-quiet: rgba(26, 26, 31, 0.45) !important;
+  --p-cta-from: #faf3df !important;
+  --p-cta-via: #ffffff !important;
+  --p-cta-to: #ede5d3 !important;
+  --p-cta-btn-bg: #c2a567 !important;
+  --p-cta-btn-bg-hover: #d1b67c !important;
+  --p-cta-btn-text: #0a0f1d !important;
+}
+
+/* Hybrid track (cyberpunk purple/aqua) — light variant
+   Keeps the dual-tone brand identity, darkens both tones for AA
+   contrast on a soft lavender-white background. */
+.perspective-root.perspective-light main[data-theme="hybrid"] {
+  --p-bg: #faf6ff !important;
+  --p-surface: #f3eaff !important;
+  --p-card: #ffffff !important;
+  --p-card-hover: #f7f0ff !important;
+  --p-border: rgba(0, 0, 0, 0.10) !important;
+  --p-border-hover: rgba(126, 34, 206, 0.32) !important;
+  --p-divider: rgba(0, 0, 0, 0.08) !important;
+  --p-accent: #7e22ce !important;
+  --p-accent-bright: #0e7490 !important;
+  --p-accent-soft: rgba(14, 116, 144, 0.55) !important;
+  --p-accent-tint: rgba(14, 116, 144, 0.95) !important;
+  --p-accent-radial: rgba(126, 34, 206, 0.10) !important;
+  --p-text: #1a0a2e !important;
+  --p-text-soft: rgba(26, 10, 46, 0.82) !important;
+  --p-text-muted: rgba(26, 10, 46, 0.66) !important;
+  --p-text-faint: rgba(26, 10, 46, 0.55) !important;
+  --p-text-quiet: rgba(26, 10, 46, 0.45) !important;
+  --p-cta-from: #f3eaff !important;
+  --p-cta-via: #ede0ff !important;
+  --p-cta-to: #e6d7ff !important;
+  --p-cta-btn-bg: #7e22ce !important;
+  --p-cta-btn-bg-hover: #0e7490 !important;
+  --p-cta-btn-text: #fafaff !important;
+}
+
+/* Trending-sidebar trading-track accents — light variant.
+   The home /perspective sidebar marks hybrid-theme posts with
+   violet numerals and a cyan dot/category label; darken those
+   tones so they read on the cream light background. */
+.perspective-root.perspective-light .text-violet-500\/45 {
+  color: rgba(91, 33, 182, 0.65) !important;
+}
+.perspective-root.perspective-light .group:hover .group-hover\:text-violet-400\/80 {
+  color: rgba(91, 33, 182, 0.95) !important;
+}
+.perspective-root.perspective-light .text-cyan-300\/85 {
+  color: rgba(14, 116, 144, 0.95) !important;
+}
+.perspective-root.perspective-light .bg-cyan-300 {
+  background-color: #0e7490 !important;
+}
+.perspective-root.perspective-light .group:hover .group-hover\:text-violet-200 {
+  color: #581c87 !important;
+}
+
 /* Noise overlay */
 .noise::after {
   content: "";
