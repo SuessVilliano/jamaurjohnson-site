@@ -22,7 +22,7 @@ export function TrendingSidebar() {
                   <span
                     className={`text-2xl transition-colors ${
                       isHybrid
-                        ? "text-emerald-500/45 group-hover:text-emerald-400/80"
+                        ? "text-violet-500/45 group-hover:text-violet-400/80"
                         : "text-[#c2a567]/40 group-hover:text-[#c2a567]/70"
                     }`}
                     style={{ fontFamily: "var(--font-editorial)" }}
@@ -32,13 +32,13 @@ export function TrendingSidebar() {
                   <div className="flex-1">
                     <div
                       className={`flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] ${
-                        isHybrid ? "text-emerald-400/80" : "text-[#f4ede0]/45"
+                        isHybrid ? "text-cyan-300/85" : "text-[#f4ede0]/45"
                       }`}
                     >
                       {isHybrid && (
                         <span
                           aria-hidden="true"
-                          className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(74,222,128,0.65)]"
+                          className="inline-block h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_10px_rgba(34,211,238,0.7)]"
                         />
                       )}
                       <span>
@@ -48,7 +48,7 @@ export function TrendingSidebar() {
                     <h4
                       className={`mt-1 text-[17px] leading-[1.3] text-[#f4ede0] transition-colors ${
                         isHybrid
-                          ? "group-hover:text-emerald-200"
+                          ? "group-hover:text-violet-200"
                           : "group-hover:text-[#e9d5a3]"
                       }`}
                       style={{ fontFamily: "var(--font-editorial)" }}
