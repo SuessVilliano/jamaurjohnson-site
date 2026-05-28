@@ -24,6 +24,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
+    {
+      url: `${SITE_URL}/perspective/insights`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
     ...INSIGHTS_POSTS.map((p) => ({
       url: `${SITE_URL}/perspective/insights/${p.slug}`,
       lastModified: now,
