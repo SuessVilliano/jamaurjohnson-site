@@ -274,14 +274,33 @@ export const INSIGHTS_POSTS: InsightPost[] = [
   },
 ];
 
-/** Compact list used by the sidebar; derived from INSIGHTS_POSTS. */
-export const TRENDING_INSIGHTS = INSIGHTS_POSTS.map((p) => ({
-  slug: p.slug,
-  category: p.category,
-  title: p.title,
-  minutes: p.minutes,
-  theme: p.theme ?? "editorial",
-}));
+/**
+ * Parse a "Month YYYY" string (e.g. "May 2026") into a sortable integer.
+ * Used to keep the trending sidebar and related-post lists in true publish
+ * order regardless of how INSIGHTS_POSTS is authored in the source file.
+ */
+const PUBLISHED_MONTH_INDEX: Record<string, number> = {
+  January: 0, February: 1, March: 2, April: 3, May: 4, June: 5,
+  July: 6, August: 7, September: 8, October: 9, November: 10, December: 11,
+};
+
+export function publishedSortKey(d: string): number {
+  const [month, year] = d.split(" ");
+  const y = Number.parseInt(year, 10);
+  const m = PUBLISHED_MONTH_INDEX[month] ?? 0;
+  return Number.isFinite(y) ? y * 12 + m : 0;
+}
+
+/** Compact list used by the sidebar; derived from INSIGHTS_POSTS, sorted newest-first. */
+export const TRENDING_INSIGHTS = [...INSIGHTS_POSTS]
+  .sort((a, b) => publishedSortKey(b.publishedDate) - publishedSortKey(a.publishedDate))
+  .map((p) => ({
+    slug: p.slug,
+    category: p.category,
+    title: p.title,
+    minutes: p.minutes,
+    theme: p.theme ?? "editorial",
+  }));
 
 export const HYBRID_PLAYBOOK_CTA = {
   eyebrow: "Free Trader's Playbook",

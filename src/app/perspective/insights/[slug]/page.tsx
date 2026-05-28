@@ -5,6 +5,7 @@ import {
   HYBRID_PLAYBOOK_CTA,
   INSIGHTS_POSTS,
   PERSPECTIVE_META,
+  publishedSortKey,
 } from "@/lib/perspective-content";
 import { PerspectiveFooter } from "@/components/perspective/PerspectiveFooter";
 import { ThemeToggle } from "@/components/perspective/ThemeToggle";
@@ -121,11 +122,12 @@ export default async function InsightPostPage({
   const isHybrid = theme === "hybrid";
 
   // Related posts: prefer same-theme posts so the trading and editorial tracks
-  // don't bleed into each other at the bottom of an article.
-  const sameTheme = INSIGHTS_POSTS.filter(
-    (p) => p.slug !== post.slug && (p.theme ?? "editorial") === theme,
-  );
-  const related = sameTheme.slice(0, 3);
+  // don't bleed into each other at the bottom of an article. Sorted newest-first
+  // so the cards surface the most-recent neighbours rather than source order.
+  const related = INSIGHTS_POSTS
+    .filter((p) => p.slug !== post.slug && (p.theme ?? "editorial") === theme)
+    .sort((a, b) => publishedSortKey(b.publishedDate) - publishedSortKey(a.publishedDate))
+    .slice(0, 3);
 
   const articleJsonLd = {
     "@context": "https://schema.org",
