@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# one-shot GHL seed script output (contains live product/price ids)
+.ghl-book-products.json
