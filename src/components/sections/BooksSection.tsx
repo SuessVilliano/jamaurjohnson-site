@@ -36,7 +36,7 @@ export function BooksSection() {
         <SectionHeader
           eyebrow="Books World"
           title="A Library Engineered to Upgrade You"
-          description="Seven books across philosophy, trading, consciousness, and the future. Pre-order the editions arriving soon."
+          description="Seven books across philosophy, trading, consciousness, and the future. Buy now — instant PDF download."
         />
 
         <div className="grid gap-6 sm:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -44,7 +44,7 @@ export function BooksSection() {
             const checkout = b.slug ? BOOK_CHECKOUTS[b.slug] : undefined;
             const hasCheckout = Boolean(checkout?.url);
             const buyLabel = hasCheckout
-              ? `Pre-Order $${checkout!.price.toFixed(2)}`
+              ? `Buy Now · $${checkout!.price.toFixed(2)}`
               : "Learn More";
             const buyHref = hasCheckout ? checkout!.url : "#contact";
 
@@ -62,7 +62,7 @@ export function BooksSection() {
                     href={buyHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Pre-order ${b.title}`}
+                    aria-label={`Buy ${b.title}`}
                     className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70 rounded-2xl"
                   >
                     <BookCover cover={b.cover} title={b.title} />
@@ -82,10 +82,14 @@ export function BooksSection() {
                   </p>
                   <div className="mt-3 inline-flex items-center gap-2 text-xs text-cyan-300/90">
                     <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(78,224,255,0.7)]" />
-                    {hasCheckout ? "Available For Pre-Order" : b.status}
+                    {hasCheckout ? "Available now · Instant PDF download" : b.status}
                   </div>
                   <div className="mt-4">
-                    <GlassButton size="sm" variant="soft" href={buyHref}>
+                    <GlassButton
+                      size="sm"
+                      variant={hasCheckout ? "primary" : "soft"}
+                      href={buyHref}
+                    >
                       {buyLabel}
                     </GlassButton>
                   </div>
