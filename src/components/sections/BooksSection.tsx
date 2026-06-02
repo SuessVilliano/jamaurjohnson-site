@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { BOOKS } from "@/lib/portfolio-data";
+import { BOOK_CHECKOUTS } from "@/lib/book-checkouts";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { GlassButton } from "@/components/ui/GlassButton";
 
@@ -35,42 +36,63 @@ export function BooksSection() {
         <SectionHeader
           eyebrow="Books World"
           title="A Library Engineered to Upgrade You"
-          description="Seven books across philosophy, trading, consciousness, and the future. Premium editions arriving soon."
+          description="Seven books across philosophy, trading, consciousness, and the future. Pre-order the editions arriving soon."
         />
 
         <div className="grid gap-6 sm:gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {BOOKS.map((b, i) => (
-            <motion.div
-              key={b.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: i * 0.05 }}
-              className="group flex flex-col gap-4"
-            >
-              <BookCover cover={b.cover} title={b.title} />
-              <div>
-                <div className="text-[10px] uppercase tracking-[0.25em] text-white/50">
-                  {b.category}
+          {BOOKS.map((b, i) => {
+            const checkout = b.slug ? BOOK_CHECKOUTS[b.slug] : undefined;
+            const hasCheckout = Boolean(checkout?.url);
+            const buyLabel = hasCheckout
+              ? `Pre-Order $${checkout!.price.toFixed(2)}`
+              : "Learn More";
+            const buyHref = hasCheckout ? checkout!.url : "#contact";
+
+            return (
+              <motion.div
+                key={b.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: i * 0.05 }}
+                className="group flex flex-col gap-4"
+              >
+                {hasCheckout ? (
+                  <a
+                    href={buyHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Pre-order ${b.title}`}
+                    className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70 rounded-2xl"
+                  >
+                    <BookCover cover={b.cover} title={b.title} />
+                  </a>
+                ) : (
+                  <BookCover cover={b.cover} title={b.title} />
+                )}
+                <div>
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-white/50">
+                    {b.category}
+                  </div>
+                  <h3 className="mt-1 text-base sm:text-lg font-semibold text-white">
+                    {b.title}
+                  </h3>
+                  <p className="mt-1 text-xs sm:text-sm text-white/55 leading-relaxed line-clamp-3">
+                    {b.description}
+                  </p>
+                  <div className="mt-3 inline-flex items-center gap-2 text-xs text-cyan-300/90">
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(78,224,255,0.7)]" />
+                    {hasCheckout ? "Available For Pre-Order" : b.status}
+                  </div>
+                  <div className="mt-4">
+                    <GlassButton size="sm" variant="soft" href={buyHref}>
+                      {buyLabel}
+                    </GlassButton>
+                  </div>
                 </div>
-                <h3 className="mt-1 text-base sm:text-lg font-semibold text-white">
-                  {b.title}
-                </h3>
-                <p className="mt-1 text-xs sm:text-sm text-white/55 leading-relaxed line-clamp-3">
-                  {b.description}
-                </p>
-                <div className="mt-3 inline-flex items-center gap-2 text-xs text-cyan-300/90">
-                  <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(78,224,255,0.7)]" />
-                  {b.status}
-                </div>
-                <div className="mt-4">
-                  <GlassButton size="sm" variant="soft" href="#contact">
-                    Learn More
-                  </GlassButton>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

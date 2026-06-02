@@ -20,6 +20,18 @@ const PIT = process.env.GHL_PIT_TOKEN?.trim();
 const LOC = process.env.GHL_LOCATION_ID?.trim();
 const API_VERSION = process.env.GHL_API_VERSION?.trim() || "2021-07-28";
 
+/**
+ * Base URL that GHL serves your store product pages from. Used to construct
+ * a checkout/pre-order URL per book in the output JSON so the website can
+ * link directly to checkout. Example values depending on your GHL setup:
+ *   - https://store.jamaurjohnson.com/products       (custom domain → GHL store)
+ *   - https://your-subaccount.gohighlevel.com/products
+ * Falls back to leaving the checkoutUrl blank if not set — you can then
+ * paste per-book payment-link URLs into the JSON before running the wire
+ * script.
+ */
+const STORE_BASE = process.env.GHL_STORE_BASE?.trim().replace(/\/+$/, "") || "";
+
 if (!PIT || !LOC) {
   console.error("\nMissing env. Set GHL_PIT_TOKEN and GHL_LOCATION_ID in your shell or .env first.\n");
   process.exit(1);
@@ -142,8 +154,9 @@ console.log(`\nSeeding ${BOOKS.length} digital products into GHL location ${LOC}
 for (const book of BOOKS) {
   try {
     const { productId, priceId } = await createBookProduct(book);
+    const checkoutUrl = STORE_BASE ? `${STORE_BASE}/${book.slug}` : "";
     console.log(`✓ ${pad(book.title, 28)}  product ${productId}  price ${priceId}  $${book.price.toFixed(2)}`);
-    results.push({ ...book, productId, priceId });
+    results.push({ ...book, productId, priceId, checkoutUrl });
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
     console.error(`✗ ${pad(book.title, 28)}  ${msg}`);
@@ -157,6 +170,16 @@ const ok = results.filter((r) => r.productId).length;
 const failed = results.length - ok;
 console.log(`\n${ok}/${results.length} products created. ${failed ? failed + " failed.\n" : ""}`);
 console.log(`Wrote ids to ${OUTPUT_PATH}`);
-console.log(`Products are DRAFT in GHL. Review them, then run:\n  node scripts/publish-book-products.mjs\n`);
+console.log("");
+console.log("Next steps:");
+console.log("  1. (Optional) Edit checkoutUrl values in the JSON if your GHL store");
+console.log("     uses payment links or a different URL pattern than ${GHL_STORE_BASE}/<slug>.");
+console.log("  2. Run:  pnpm ghl:wire-books   — generates src/lib/book-checkouts.ts");
+console.log("     so the website's BooksSection links each cover to its checkout.");
+console.log("  3. In GHL, upload each book's PDF (when ready) and configure the");
+console.log("     post-purchase delivery email — see scripts/README.md.");
+console.log("  4. When the products look right in GHL, run:");
+console.log("       pnpm ghl:publish-books");
+console.log("");
 
 process.exit(failed ? 1 : 0);
