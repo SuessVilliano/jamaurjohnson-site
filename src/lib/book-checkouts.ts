@@ -28,7 +28,7 @@ export const BOOK_CHECKOUTS: Record<string, BookCheckout> = {
     price: 18.88,
     productId: "6a1ecd267e3c81c28b2e85fb",
     priceId: "6a1ecd27d1f612c2256585ee",
-    url: "https://store.jamaurjohnson.com/products/the-last-verifiable-year",
+    url: "https://store.jamaurjohnson.com/product-details/product/the-last-verifiable-year",
   },
   "synchronicity": {
     slug: "synchronicity",
@@ -36,7 +36,7 @@ export const BOOK_CHECKOUTS: Record<string, BookCheckout> = {
     price: 18.88,
     productId: "6a1ecd27c1fac220d7c67af9",
     priceId: "6a1ecd279391445eada6d1ac",
-    url: "https://store.jamaurjohnson.com/products/synchronicity",
+    url: "https://store.jamaurjohnson.com/product-details/product/synchronicity",
   },
   "awakening-to-source": {
     slug: "awakening-to-source",
@@ -44,7 +44,7 @@ export const BOOK_CHECKOUTS: Record<string, BookCheckout> = {
     price: 18.88,
     productId: "6a1ecd27ae017e2e4e258f0b",
     priceId: "6a1ecd27623b353e02dd9e59",
-    url: "https://store.jamaurjohnson.com/products/awakening-to-source",
+    url: "https://store.jamaurjohnson.com/product-details/product/awakening-to-source",
   },
   "the-space-in-between": {
     slug: "the-space-in-between",
@@ -52,7 +52,7 @@ export const BOOK_CHECKOUTS: Record<string, BookCheckout> = {
     price: 8.88,
     productId: "6a1ecd28964fe84c538a5341",
     priceId: "6a1ecd2880aca0bb077f00be",
-    url: "https://store.jamaurjohnson.com/products/the-space-in-between",
+    url: "https://store.jamaurjohnson.com/product-details/product/the-space-in-between",
   },
   "atomic-habits-for-traders": {
     slug: "atomic-habits-for-traders",
@@ -60,7 +60,7 @@ export const BOOK_CHECKOUTS: Record<string, BookCheckout> = {
     price: 8.88,
     productId: "6a1ecd2883b74e6255a9042e",
     priceId: "6a1ecd28aa07d2ffab56bd5d",
-    url: "https://store.jamaurjohnson.com/products/atomic-habits-for-traders",
+    url: "https://store.jamaurjohnson.com/product-details/product/atomic-habits-for-traders",
   },
   "trading-in-the-vortex": {
     slug: "trading-in-the-vortex",
@@ -68,7 +68,7 @@ export const BOOK_CHECKOUTS: Record<string, BookCheckout> = {
     price: 8.88,
     productId: "6a1ecd28a93eb29b06509665",
     priceId: "6a1ecd29aa07d2db2156bd62",
-    url: "https://store.jamaurjohnson.com/products/trading-in-the-vortex",
+    url: "https://store.jamaurjohnson.com/product-details/product/trading-in-the-vortex",
   },
   "trade-hybrid": {
     slug: "trade-hybrid",
@@ -76,6 +76,6 @@ export const BOOK_CHECKOUTS: Record<string, BookCheckout> = {
     price: 18.88,
     productId: "6a1ecd2980aca01f0f7f00d2",
     priceId: "6a1ecd29fc29dbd948b15d67",
-    url: "https://store.jamaurjohnson.com/products/trade-hybrid",
+    url: "https://store.jamaurjohnson.com/product-details/product/trade-hybrid",
   },
 };
