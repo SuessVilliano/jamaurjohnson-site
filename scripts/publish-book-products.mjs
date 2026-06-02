@@ -62,9 +62,22 @@ for (const e of entries) {
     continue;
   }
   try {
+    // GHL's PUT /products/:id is a full replace, not a patch — it 422s unless
+    // name + productType are present. Fetch the current product and resend the
+    // required fields alongside availableInStore.
+    const current = await ghl(`/products/${e.productId}?locationId=${encodeURIComponent(LOC)}`);
+    const p = current.product ?? current;
     await ghl(`/products/${e.productId}`, {
       method: "PUT",
-      body: JSON.stringify({ locationId: LOC, availableInStore: true }),
+      body: JSON.stringify({
+        locationId: LOC,
+        name: p.name,
+        description: p.description,
+        productType: p.productType || "DIGITAL",
+        ...(p.image ? { image: p.image } : {}),
+        ...(p.slug ? { slug: p.slug } : {}),
+        availableInStore: true,
+      }),
     });
     console.log(`✓ ${pad(e.title, 28)}  published`);
     published += 1;

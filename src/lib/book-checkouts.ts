@@ -3,9 +3,7 @@
  * Do not edit by hand — re-run the wire script after re-seeding GHL.
  *
  * The BooksSection on the homepage imports BOOK_CHECKOUTS to turn each
- * book cover into a working checkout link. Until the seed + wire scripts
- * have been run with real GHL credentials, this map stays empty and the
- * BooksSection falls back to the placeholder "Learn More" CTA.
+ * book cover into a working checkout link.
  */
 
 export type BookCheckout = {
@@ -23,4 +21,61 @@ export type BookCheckout = {
   url: string;
 };
 
-export const BOOK_CHECKOUTS: Record<string, BookCheckout> = {};
+export const BOOK_CHECKOUTS: Record<string, BookCheckout> = {
+  "the-last-verifiable-year": {
+    slug: "the-last-verifiable-year",
+    title: "The Last Verifiable Year",
+    price: 18.88,
+    productId: "6a1ecd267e3c81c28b2e85fb",
+    priceId: "6a1ecd27d1f612c2256585ee",
+    url: "https://store.jamaurjohnson.com/products/the-last-verifiable-year",
+  },
+  "synchronicity": {
+    slug: "synchronicity",
+    title: "Synchronicity",
+    price: 18.88,
+    productId: "6a1ecd27c1fac220d7c67af9",
+    priceId: "6a1ecd279391445eada6d1ac",
+    url: "https://store.jamaurjohnson.com/products/synchronicity",
+  },
+  "awakening-to-source": {
+    slug: "awakening-to-source",
+    title: "Awakening to Source",
+    price: 18.88,
+    productId: "6a1ecd27ae017e2e4e258f0b",
+    priceId: "6a1ecd27623b353e02dd9e59",
+    url: "https://store.jamaurjohnson.com/products/awakening-to-source",
+  },
+  "the-space-in-between": {
+    slug: "the-space-in-between",
+    title: "The Space In Between",
+    price: 8.88,
+    productId: "6a1ecd28964fe84c538a5341",
+    priceId: "6a1ecd2880aca0bb077f00be",
+    url: "https://store.jamaurjohnson.com/products/the-space-in-between",
+  },
+  "atomic-habits-for-traders": {
+    slug: "atomic-habits-for-traders",
+    title: "Atomic Habits for Traders",
+    price: 8.88,
+    productId: "6a1ecd2883b74e6255a9042e",
+    priceId: "6a1ecd28aa07d2ffab56bd5d",
+    url: "https://store.jamaurjohnson.com/products/atomic-habits-for-traders",
+  },
+  "trading-in-the-vortex": {
+    slug: "trading-in-the-vortex",
+    title: "Trading In The Vortex",
+    price: 8.88,
+    productId: "6a1ecd28a93eb29b06509665",
+    priceId: "6a1ecd29aa07d2db2156bd62",
+    url: "https://store.jamaurjohnson.com/products/trading-in-the-vortex",
+  },
+  "trade-hybrid": {
+    slug: "trade-hybrid",
+    title: "Trade Hybrid",
+    price: 18.88,
+    productId: "6a1ecd2980aca01f0f7f00d2",
+    priceId: "6a1ecd29fc29dbd948b15d67",
+    url: "https://store.jamaurjohnson.com/products/trade-hybrid",
+  },
+};

@@ -138,7 +138,10 @@ async function createBookProduct(book) {
       name: "Ebook",
       type: "one_time",
       currency: "USD",
-      amount: Math.round(book.price * 100),
+      // GHL's Products API expects `amount` in the currency's MAJOR unit (dollars),
+      // not cents — verified against the live API (sending 18.88 stores $18.88).
+      // Do NOT multiply by 100 here or books get priced 100x too high.
+      amount: book.price,
     }),
   });
   const priceId = price._id ?? price.id ?? price?.price?._id;
