@@ -5,6 +5,8 @@ export type Book = {
   status: "Coming Soon" | "Available Soon" | "Available";
   cover: string;
   link?: string;
+  /** Used to look up the GHL checkout URL in BOOK_CHECKOUTS. */
+  slug?: string;
 };
 
 export type Company = {
@@ -268,6 +270,7 @@ export const WORLDS: World[] = [
 export const BOOKS: Book[] = [
   {
     title: "The Last Verifiable Year",
+    slug: "the-last-verifiable-year",
     category: "Philosophy / Future",
     description:
       "A reckoning with the year reality became negotiable — and what comes after.",
@@ -276,6 +279,7 @@ export const BOOKS: Book[] = [
   },
   {
     title: "Synchronicity",
+    slug: "synchronicity",
     category: "Inner Work",
     description:
       "Reading the signal in the noise. A guide to aligning with the patterns life is already showing you.",
@@ -284,6 +288,7 @@ export const BOOKS: Book[] = [
   },
   {
     title: "Awakening to Source",
+    slug: "awakening-to-source",
     category: "Consciousness",
     description:
       "Remembering what you already are. A field manual for the inward path.",
@@ -292,6 +297,7 @@ export const BOOKS: Book[] = [
   },
   {
     title: "The Space In Between",
+    slug: "the-space-in-between",
     category: "Reflection",
     description:
       "Notes from the threshold — between identities, eras, and selves.",
@@ -300,6 +306,7 @@ export const BOOKS: Book[] = [
   },
   {
     title: "Atomic Habits for Traders",
+    slug: "atomic-habits-for-traders",
     category: "Trading / Performance",
     description:
       "The compounding edge: small systems, repeated, that build a trader who can't be shaken.",
@@ -308,6 +315,7 @@ export const BOOKS: Book[] = [
   },
   {
     title: "Trading In The Vortex",
+    slug: "trading-in-the-vortex",
     category: "Trading / Mindset",
     description:
       "Operating from alignment instead of fear. A philosophy and playbook for the modern trader.",
@@ -316,6 +324,7 @@ export const BOOKS: Book[] = [
   },
   {
     title: "Trade Hybrid",
+    slug: "trade-hybrid",
     category: "Trading / Systems",
     description:
       "The hybrid trader's manual — strategy, technology, psychology, and community as one engine.",

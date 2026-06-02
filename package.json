@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "ghl:seed-books": "node scripts/seed-book-products.mjs",
+    "ghl:wire-books": "node scripts/wire-book-products.mjs",
+    "ghl:publish-books": "node scripts/publish-book-products.mjs"
   },
   "dependencies": {
     "@ai-sdk/gateway": "^3.0.116",
