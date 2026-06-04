@@ -48,7 +48,7 @@ const articleJsonLd = {
     url: `${SITE_URL}/perspective`,
   },
   mainEntityOfPage: `${SITE_URL}/perspective`,
-  image: `${SITE_URL}/photos/portrait-lounge.png`,
+  image: `${SITE_URL}/photos/portrait-lounge.jpg`,
 };
 
 /**

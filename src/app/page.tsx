@@ -11,7 +11,7 @@ import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <main className="relative w-full">
+    <main id="main-content" className="relative w-full">
       <Hero />
       <ScrollJourney />
       <BooksSection />

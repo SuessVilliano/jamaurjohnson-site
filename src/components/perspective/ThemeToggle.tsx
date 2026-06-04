@@ -1,21 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
+import { useMounted } from "@/components/hooks/useMounted";
 
 const STORAGE_KEY = "perspective-theme";
 
 type Theme = "dark" | "light";
-
-function readInitialTheme(): Theme {
-  if (typeof window === "undefined") return "dark";
-  try {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored === "light" || stored === "dark") return stored;
-  } catch {
-    // localStorage disabled — fall through
-  }
-  return "dark";
-}
 
 function applyTheme(theme: Theme) {
   if (typeof document === "undefined") return;
@@ -25,39 +15,65 @@ function applyTheme(theme: Theme) {
   else root.classList.remove("perspective-light");
 }
 
-export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("dark");
-  const [mounted, setMounted] = useState(false);
+// Tiny external store for the theme — lets us read localStorage without a
+// setState-in-effect (which the React 19 / Next 16 lint rules flag).
+const listeners = new Set<() => void>();
+let current: Theme | null = null;
 
-  useEffect(() => {
-    const initial = readInitialTheme();
-    setTheme(initial);
-    applyTheme(initial);
-    setMounted(true);
-  }, []);
-
-  function toggle() {
-    const next: Theme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    applyTheme(next);
-    try {
-      window.localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-      // ignore
-    }
+function readTheme(): Theme {
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (stored === "light" || stored === "dark") return stored;
+  } catch {
+    // localStorage disabled — fall through
   }
+  return "dark";
+}
+
+function getSnapshot(): Theme {
+  if (current === null) current = readTheme();
+  return current;
+}
+function getServerSnapshot(): Theme {
+  return "dark";
+}
+function subscribe(cb: () => void) {
+  listeners.add(cb);
+  return () => listeners.delete(cb);
+}
+function setTheme(next: Theme) {
+  current = next;
+  applyTheme(next);
+  try {
+    window.localStorage.setItem(STORAGE_KEY, next);
+  } catch {
+    // ignore
+  }
+  listeners.forEach((l) => l());
+}
+
+export function ThemeToggle() {
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const mounted = useMounted();
+
+  // Sync the DOM class to the current theme (side effect only — no setState).
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme]);
+
+  // Until hydrated, present the server value so SSR + client markup agree.
+  const display: Theme = mounted ? theme : "dark";
 
   return (
     <button
       type="button"
-      onClick={toggle}
-      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      onClick={() => setTheme(display === "dark" ? "light" : "dark")}
+      aria-label={`Switch to ${display === "dark" ? "light" : "dark"} mode`}
+      title={`Switch to ${display === "dark" ? "light" : "dark"} mode`}
       className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--p-border,rgba(255,255,255,0.12))] text-[var(--p-text-muted,rgba(244,237,224,0.7))] transition-colors hover:border-[#c2a567]/40 hover:text-[#e9d5a3]"
     >
       <span aria-hidden="true" className="text-base leading-none">
-        {/* Render a stable glyph until hydration so SSR + client agree. */}
-        {!mounted ? "◐" : theme === "dark" ? "☾" : "☀"}
+        {!mounted ? "◐" : display === "dark" ? "☾" : "☀"}
       </span>
     </button>
   );

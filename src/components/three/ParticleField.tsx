@@ -4,15 +4,28 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import * as THREE from "three";
 
+// Seeded PRNG (mulberry32) — deterministic so particle positions are pure
+// (no Math.random during render) and stay stable across re-renders.
+function mulberry32(seed: number) {
+  return function () {
+    seed |= 0;
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 function Particles({ count = 800 }: { count?: number }) {
   const ref = useRef<THREE.Points>(null);
 
   const positions = useMemo(() => {
+    const rand = mulberry32(0x9e3779b9);
     const arr = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      arr[i * 3 + 0] = (Math.random() - 0.5) * 18;
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 12;
-      arr[i * 3 + 2] = (Math.random() - 0.5) * 10;
+      arr[i * 3 + 0] = (rand() - 0.5) * 18;
+      arr[i * 3 + 1] = (rand() - 0.5) * 12;
+      arr[i * 3 + 2] = (rand() - 0.5) * 10;
     }
     return arr;
   }, [count]);
