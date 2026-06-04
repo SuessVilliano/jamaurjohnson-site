@@ -193,6 +193,12 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col noise">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:font-medium focus:text-black"
+        >
+          Skip to content
+        </a>
         <Providers>{children}</Providers>
 
         {/* GoHighLevel form/booking widget auto-resize helper.
