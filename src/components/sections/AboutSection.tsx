@@ -52,10 +52,10 @@ export function AboutSection() {
 
             <div className="absolute -bottom-6 right-3 w-32 overflow-hidden rounded-2xl border-2 border-white/15 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.85)] sm:-bottom-8 sm:right-5 sm:w-48">
               <Image
-                src="/photos/portrait-street.jpg"
+                src="/photos/portrait-green.jpg"
                 alt="Jamaur Johnson"
-                width={786}
-                height={786}
+                width={384}
+                height={512}
                 className="block h-auto w-full"
               />
             </div>
