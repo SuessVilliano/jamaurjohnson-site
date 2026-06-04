@@ -36,6 +36,11 @@ body {
   overflow-x: hidden;
   overflow-x: clip;
   max-width: 100%;
+  /* Stop the iOS/Android rubber-band overscroll past the footer, which
+     otherwise reveals the dark page background as an empty "black screen"
+     below the content (worsened by background-attachment: fixed). Also
+     disables pull-to-refresh — fine for a portfolio's app-like feel. */
+  overscroll-behavior-y: none;
 }
 
 body {
