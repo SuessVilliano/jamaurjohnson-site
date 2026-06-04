@@ -26,7 +26,7 @@ export function ContactSection() {
               alt="Jamaur Johnson"
               width={708}
               height={667}
-              className="relative w-52 sm:w-64 lg:w-full h-auto drop-shadow-[0_30px_60px_rgba(0,0,0,0.55)]"
+              className="relative w-52 sm:w-64 lg:w-[340px] h-auto drop-shadow-[0_30px_60px_rgba(0,0,0,0.55)]"
             />
           </motion.div>
 
@@ -42,6 +42,20 @@ export function ContactSection() {
             <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-gradient-to-br from-fuchsia-500/30 to-violet-500/0 blur-3xl" />
 
             <div className="relative text-center lg:text-left">
+              <div className="mb-6 flex items-center gap-3 justify-center lg:justify-start">
+                <Image
+                  src="/photos/portrait-maroon.jpg"
+                  alt="Jamaur Johnson"
+                  width={384}
+                  height={512}
+                  className="h-12 w-12 rounded-full object-cover object-top ring-2 ring-white/15"
+                />
+                <div className="text-left leading-tight">
+                  <p className="text-sm font-medium text-white">Jamaur Johnson</p>
+                  <p className="text-xs text-white/50">Founder · LIV8 / Hybrid</p>
+                </div>
+              </div>
+
               <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-white/75">
                 <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_14px_rgba(78,224,255,0.9)]" />
                 Open for Collaboration
