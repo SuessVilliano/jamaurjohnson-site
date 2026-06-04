@@ -59,9 +59,46 @@ export type InsightPost = {
   body: string[];
   /** Visual theme + CTA track. Defaults to "editorial" (LIV8 gold/cream). */
   theme?: "editorial" | "hybrid";
+  /** Optional cited sources, rendered as a linked list under the article. */
+  sources?: { label: string; url: string }[];
 };
 
 export const INSIGHTS_POSTS: InsightPost[] = [
+  {
+    slug: "the-25000-day-trading-wall-just-fell",
+    category: "Markets",
+    title: "The $25,000 Wall Just Fell — And Most Traders Don't Know Why",
+    minutes: 7,
+    publishedDate: "June 4, 2026",
+    theme: "hybrid",
+    summary:
+      "On June 4, 2026, FINRA eliminated the pattern day trader rule — the $25,000 minimum that locked most retail traders out of active day trading for a generation. Here's what actually changed, why it happened, and the part nobody's talking about: this is freedom, and freedom cuts both ways.",
+    body: [
+      "For twenty-five years, there was a wall. If you wanted to day trade U.S. stocks — to open and close more than three positions inside a five-day window — you needed twenty-five thousand dollars sitting in your account. Not as a fee. As a permission slip. On June 4, 2026, that wall came down.",
+      "FINRA's Regulatory Notice 26-10 did something that, a year ago, most of the retail world would have called impossible: it eliminated the pattern day trader rule entirely. Not softened it. Not adjusted the threshold. Removed it — the $25,000 minimum and the “pattern day trader” designation that came with it, struck from the rulebook.",
+      "You'll see it described online as “the minimum dropped from $25,000 to $2,000,” and that framing is close enough to be useful and wrong enough to matter. The $2,000 was never the day-trading number. It's the long-standing minimum to open a margin account at all. What actually happened is that the $25,000 gate was deleted — which leaves that older, far lower $2,000 floor as the practical entry point. The barrier wasn't lowered. The specific barrier built to keep small traders out was erased.",
+      "To understand why that matters, remember why the wall went up. The pattern day trader rule was born in 2001, in the wreckage of the dot-com bubble, when a wave of undercapitalized traders learned the hard way that a margin account and a fast connection could vaporize a small balance in an afternoon. The $25,000 minimum was a guardrail — a blunt one. Its logic was simple: if you can't keep $25,000 in the account, you probably can't survive trading it every day, so we won't let you try.",
+      "For two decades that logic held, and for two decades traders called it paternalistic, arbitrary, and increasingly out of step with the market it governed. FINRA effectively agreed, noting that members and customers had “for some time voiced concern that the day trading margin requirements are restrictive, onerous and unnecessary in today's markets.” Commissions went to zero. Fractional shares arrived. The retail trader of 2026 is not the retail trader of 2001. The rule, eventually, stopped matching the world it was written for.",
+      "Here's the part almost no one is explaining: the rule wasn't merely deleted — it was replaced. In its place FINRA installed a risk-based intraday margin framework. Instead of a flat $25,000 number that ignored what you were actually doing, your required margin now tracks your real exposure through the day. Carry more risk, you need more equity behind it; carry less, you need less. It's a more surgical system than a one-size-fits-all wall, and it quietly moves the question from “how much money do you have” to “how much risk are you holding right now.”",
+      "For the retail trader — the little guy, the one priced out of active trading for a generation — this is enormous. A trader with a genuine edge and a $5,000 account spent the last twenty-five years rationing trades to stay under the three-in-five-days limit, or pushed into cash accounts and the friction of settlement timing. That trader can now actually trade. The skill they built no longer has to wait for a five-figure balance before it's allowed to express itself.",
+      "Strip away the regulatory language and what's left is a door that was locked for a generation, swinging open. The same democratization that came for commissions and account minimums has finally reached the last big structural barrier to active trading. That is worth being genuinely optimistic about. The market just became more accessible to the exact people it spent decades holding at arm's length.",
+      "And now the part the celebration posts skip. A wall is also a guardrail, and guardrails exist because people fall. The pattern day trader rule was clumsy, but it was protecting small accounts from the precise thing that destroys them: leverage, applied actively, with too little cushion underneath it. That protection is gone now — and the math that made it necessary in 2001 hasn't changed at all.",
+      "Margin is leverage, and leverage is symmetrical: it magnifies the good days and the bad ones with perfect indifference. The new intraday-margin system also has teeth. Run an intraday margin deficit and you're expected to cure it promptly; ignore it past the fifth business day and your account can be restricted from increasing short positions for ninety calendar days. A small, active, leveraged account in undisciplined hands is, statistically, a countdown. The rule changing doesn't change that. It only removes the thing that was slowing it down.",
+      "There's a practical wrinkle worth knowing, too: this didn't switch on everywhere at once. FINRA gave firms an eighteen-month runway — until October 20, 2027 — to implement the change. So for a while, your access depends on your broker. Some will move quickly; some will phase it in. “The rule changed” and “my account can do this today” are not yet the same sentence at every firm.",
+      "The honest read is that this is freedom — and freedom is not the same thing as safety. The $25,000 wall made a decision for you about whether you were ready. Now that decision is yours. That's better; it respects the trader who actually did the work. But it asks more of you, not less. The discipline that used to be optional for small accounts — because the rule enforced it from the outside — is now the only thing standing between a trader and the drawdown that ends them.",
+      "So yes, this is genuinely a historic day for the retail trader: one of the most consequential rule changes in a generation, and one most people will misunderstand or sleep straight through. The opportunity is real. The risk is just as real, and now it's unsupervised. The traders who win the next decade won't be the ones who threw a party when the wall came down. They'll be the ones who understood it had been holding two things back at once — their potential and their ruin — and who built the discipline to let out only the first.",
+    ],
+    sources: [
+      {
+        label: "FINRA — Regulatory Notice 26-10 (primary source)",
+        url: "https://www.finra.org/rules-guidance/notices/26-10",
+      },
+      {
+        label: "FINRA — Understanding the New Intraday Margin Requirements",
+        url: "https://www.finra.org/investors/insights/intraday-margin-requirements",
+      },
+    ],
+  },
   {
     slug: "the-capital-problem-most-traders-never-solve",
     category: "Capital",
@@ -361,8 +398,11 @@ const PUBLISHED_MONTH_INDEX: Record<string, number> = {
 };
 
 export function publishedSortKey(d: string): number {
-  const [month, year] = d.split(" ");
-  const y = Number.parseInt(year, 10);
+  // Tolerates both "May 2026" and "June 4, 2026": month is the first token,
+  // year is the trailing 4-digit token, an optional day is ignored.
+  const tokens = d.replace(/,/g, "").split(" ").filter(Boolean);
+  const month = tokens[0];
+  const y = Number.parseInt(tokens[tokens.length - 1], 10);
   const m = PUBLISHED_MONTH_INDEX[month] ?? 0;
   return Number.isFinite(y) ? y * 12 + m : 0;
 }

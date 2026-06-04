@@ -231,6 +231,31 @@ export default async function InsightPostPage({
             ))}
           </article>
 
+          {post.sources && post.sources.length > 0 && (
+            <div
+              className="mt-12 rounded-xl p-6"
+              style={{ border: "1px solid var(--p-border)", background: "var(--p-card)" }}
+            >
+              <div className="text-[10px] uppercase tracking-[0.32em] text-[var(--p-accent-tint)]">
+                Sources
+              </div>
+              <ul className="mt-3 space-y-2">
+                {post.sources.map((s) => (
+                  <li key={s.url} className="text-sm leading-relaxed">
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--p-text-soft)] underline decoration-[var(--p-accent-soft)] underline-offset-4 transition-colors hover:text-[var(--p-accent-bright)]"
+                    >
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {isHybrid ? (
             <div
               className="mt-14 rounded-2xl p-7 sm:p-9"
