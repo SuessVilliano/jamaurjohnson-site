@@ -11,7 +11,13 @@ function resend(): Resend | null {
   return _resend;
 }
 
-export type LeadSource = "exit-intent" | "book-a-call" | "chat" | "questionnaire" | "audit";
+export type LeadSource =
+  | "exit-intent"
+  | "book-a-call"
+  | "chat"
+  | "questionnaire"
+  | "audit"
+  | "highlevel";
 
 export type LeadPayload = {
   source: LeadSource;
@@ -33,6 +39,7 @@ const SOURCE_LABEL: Record<LeadSource, string> = {
   chat: "CHAT LEAD",
   questionnaire: "GET STARTED QUESTIONNAIRE",
   audit: "LIV8 PERSPECTIVE · AUDIT REQUEST",
+  highlevel: "LIV8 AI · HIGHLEVEL OPERATIONS AUDIT",
 };
 
 function escapeHtml(s: string) {
