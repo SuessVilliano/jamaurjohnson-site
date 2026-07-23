@@ -3,6 +3,7 @@ import { ScrollJourney } from "@/components/sections/ScrollJourney";
 import { BooksSection } from "@/components/sections/BooksSection";
 import { CompaniesSection } from "@/components/sections/CompaniesSection";
 import { SitesSection } from "@/components/sections/SitesSection";
+import { HighLevelCTA } from "@/components/sections/HighLevelCTA";
 import { MusicSection } from "@/components/sections/MusicSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { VisionSection } from "@/components/sections/VisionSection";
@@ -17,6 +18,7 @@ export default function Home() {
       <BooksSection />
       <CompaniesSection />
       <SitesSection />
+      <HighLevelCTA />
       <MusicSection />
       <AboutSection />
       <VisionSection />
