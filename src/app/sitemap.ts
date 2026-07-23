@@ -19,6 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${SITE_URL}/highlevel-operations`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
       url: `${SITE_URL}/perspective`,
       lastModified: now,
       changeFrequency: "weekly",

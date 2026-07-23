@@ -1,0 +1,141 @@
+# Copy-Paste Build Prompt for liv8ai.com
+
+Paste everything inside the code block below into your website builder / AI page
+builder (Base44, Framer AI, Webflow AI, GoHighLevel funnel builder, etc.). It
+tells the builder exactly what to construct — the same Fractional HighLevel
+Operations positioning now live at `jamaurjohnson.com/highlevel-operations`.
+
+> Before you publish: replace the two bracketed placeholders — `[TESTIMONIALS]`
+> and `[CALENDAR/APPLICATION LINK]` — and keep the "not affiliated with HighLevel"
+> disclaimer in the footer.
+
+---
+
+```
+You are building a high-converting landing page for LIV8 AI. Do not make it a
+generic "AI company" page. Build a focused direct-response page that sells ONE
+thing: Fractional HighLevel Operations for growing agencies.
+
+BRAND & TONE
+- Brand: LIV8 AI. Founder: Jamaur Johnson.
+- Category (say this, don't bury it): "Fractional HighLevel Operations."
+- Positioning line: "The HighLevel Operations Partner for Agencies Tired of
+  Doing Everything Themselves."
+- Voice: senior, calm, implementation-first, premium. Never hypey. No "10x your
+  revenue," no "AI guru," no fake urgency.
+- Audience: HighLevel (GoHighLevel) agency owners with 3–30 active clients who
+  are already making money but drowning in onboarding, fulfillment, and
+  troubleshooting. They know how to sell; they hate building workflows.
+- Sell a painful, measurable OUTCOME (a repaired, documented, launch-ready
+  HighLevel agency), not "AI possibilities."
+
+DESIGN
+- Dark, editorial, luxury feel. Deep near-black background (#06080f), warm cream
+  text (#f4ede0), single gold accent (#c2a567). One elegant serif for headlines,
+  clean sans for body. Generous spacing. Rounded cards with subtle borders.
+- Primary buttons: gold pill, dark text. Secondary: outlined pill.
+- Fully responsive, mobile-first, with a sticky mobile "Request My Audit" bar.
+
+PAGE SECTIONS (in this order)
+
+1) HERO
+   H1: "Stop Being the Salesperson, Onboarding Team, Tech Support, and HighLevel
+   Expert All at Once."
+   Sub: "LIV8 AI is the fractional HighLevel operations partner for growing
+   agencies. We go inside your account and repair, organize, and operate your
+   HighLevel systems — so you can get back to acquiring clients and growing the
+   agency."
+   Buttons: [Book My HighLevel Operations Audit] and [See the Rescue Sprint].
+   Trust line: "Built for agencies with 3–30 active clients. Senior-level
+   attention — not a low-cost general VA."
+
+2) THE PROBLEM — "You Bought HighLevel to Simplify Your Agency."
+   Sub: "Instead, it quietly became another full-time job. Right now you're
+   probably:" then a grid of pains: fixing broken workflows at night; repeating
+   the same onboarding call for every client; answering basic platform questions
+   all day; digging through settings when something silently breaks; juggling
+   calendars, pipelines, domains, email, phone, forms, funnels, permissions, and
+   integrations; delaying launches because the system isn't ready.
+   Closer: "HighLevel is powerful. But without a clear operating system
+   underneath it, that power turns into overhead — and the overhead lands on you."
+
+3) THE OFFER — "The HighLevel Rescue Sprint"
+   Promise: "In seven business days, we audit, repair, and organize the most
+   important parts of your HighLevel agency — so you can onboard and serve
+   clients with confidence, without living inside the platform."
+   Deliverables list: complete agency-account audit; full review of funnels,
+   workflows, pipelines, calendars, forms, domains, email, phone, permissions,
+   integrations; identify broken/redundant/risky automations; repair up to 3
+   priority systems; 1 standardized client-onboarding workflow; 1 onboarding
+   checklist; 1 pipeline & opportunity structure; 1 booking & follow-up system;
+   A2P readiness review (approval not guaranteed); recorded walkthrough; written
+   "what to fix next" roadmap; 14 days of post-delivery support.
+   Price card: "Founding-Client Investment — $1,500" (or two payments of $850;
+   later price $2,500–$3,500). Note: "Founding pricing is limited to the first
+   five agencies."
+   Guarantee — "The Launch-Ready Guarantee": "We keep working on the agreed
+   deliverables until the systems in your project scope are operational and
+   documented. No revenue promises — just systems that actually work."
+   Button: [Apply for a Rescue Sprint].
+
+4) WHY LIV8 AI — "The Bridge Between a Random VA and a Giant White-Label Support
+   Company." Six cards: Implementation, Not Instructions; Senior-Level Attention;
+   One Partner Across Your System; Systems Your Team Can Actually Use; AI on Top
+   of HighLevel (Conversation AI, Voice AI, knowledge bases, lead qualification,
+   booking, follow-up, onboarding automation); Boundaries That Protect Delivery
+   (clear request systems, defined scope — no vague "unlimited").
+
+5) BEFORE / AFTER table — bottleneck→system; every client an emergency→one
+   standardized onboarding; silent breakage→audited & documented; knowledge in
+   your head→SOPs and Looms; explain it weekly→knowledge base + AI answers it;
+   delayed launches→launch-ready before the client arrives.
+
+6) RECURRING PLANS — "LIV8 Ops Desk." Three pricing cards:
+   - Essential $497/mo: up to 5 requests/mo, workflow & funnel troubleshooting,
+     1 monthly ops call, Loom explanations, 48-business-hour response, minor
+     config, agency-team support (not direct client support).
+   - Growth $997/mo (MARK AS "Most Agencies Start Here"): up to 12 requests/mo,
+     up to 2 new sub-account onboardings/mo, workflow/calendar/pipeline/form/
+     funnel/integration work, 1 priority build/mo, weekly ops call,
+     24-business-hour response, private Slack, scheduled client-facing calls.
+   - Embedded $1,997/mo (limit 3–4 agencies): fractional HighLevel operations
+     manager, up to 4 onboardings/mo, agency + scheduled client-facing support,
+     weekly implementation, SOP & training-library development, priority
+     troubleshooting, 2 ops calls/week, quarterly architecture review.
+   Footnote: "Most agencies start with a Rescue Sprint, then move onto the plan
+   that matches how fast they're onboarding."
+
+7) PROOF — "Deep HighLevel Knowledge, Communicated Clearly, Implemented
+   End-to-End." Cards for: Technical Problem-Solving; Platform Depth; Clear
+   Communication; Beyond the Ticket; Automation & AI Insight; Speed &
+   Follow-Through. Then a testimonials row: [TESTIMONIALS — insert only real,
+   permission-obtained quotes; anonymized like "Agency owner, 20+ client
+   accounts" is fine. Do NOT fabricate reviews.]
+
+8) FINAL CTA / AUDIT — "Book Your HighLevel Operations Audit." On the call we'll
+   identify: what's broken or slowing you down; what to repair first; whether a
+   Rescue Sprint fits; what ongoing support looks like after. Embed the audit
+   form OR link [CALENDAR/APPLICATION LINK]. Form fields: Full Name*, Agency
+   Name*, Email*, Phone, Agency Website, Active client sub-accounts (1–5 / 6–15 /
+   16–30 / 30+), "What feels hardest to manage right now?" (textarea).
+
+9) FAQ — do you go into my account or just advise? (we go in); affiliated with
+   HighLevel? (no — independent, not affiliated/endorsed); guarantee more
+   leads/revenue? (no — we guarantee the work/scope); what size agency? (3–30
+   clients); do you support my clients directly? (primarily the agency team;
+   scheduled client calls on Growth/Embedded); A2P? (readiness review included,
+   carrier approval not guaranteed).
+
+10) FOOTER — LIV8 AI blurb, nav, socials, and this exact disclaimer: "LIV8 AI is
+    an independent company and is not affiliated with, sponsored by, or endorsed
+    by HighLevel or its affiliates. HighLevel is a trademark of its respective
+    owner. Services are provided on a defined-scope basis; results vary by
+    agency."
+
+RULES
+- Never claim affiliation with or endorsement by HighLevel.
+- Never guarantee revenue or leads — only the scope-based Launch-Ready Guarantee.
+- Never advertise "unlimited."
+- Don't invent testimonials, logos, or client names.
+- Every CTA should lead to the audit form or the booking calendar.
+```
