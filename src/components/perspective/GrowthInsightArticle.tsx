@@ -35,6 +35,9 @@ export function GrowthInsightArticle({ post }: { post: GrowthInsight }) {
   const ctaBg = isHybrid
     ? "from-violet-950/70 via-[#0b0920] to-cyan-950/30"
     : "from-[#1a1612] via-[#0f141f] to-[#0a0f1d]";
+  const dropCapClass = isHybrid
+    ? "first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-6xl first-letter:font-semibold first-letter:leading-[0.85] first-letter:text-violet-400"
+    : "first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-6xl first-letter:font-semibold first-letter:leading-[0.85] first-letter:text-[#c2a567]";
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -68,11 +71,11 @@ export function GrowthInsightArticle({ post }: { post: GrowthInsight }) {
       <section className="relative pt-32 pb-12 sm:pt-40 sm:pb-16">
         <div
           aria-hidden="true"
-          className={`pointer-events-none absolute inset-x-0 -top-20 h-[420px] ${
+          className={
             isHybrid
-              ? "[background:radial-gradient(60%_50%_at_50%_0%,rgba(168,85,247,0.18),transparent_60%)]"
-              : "[background:radial-gradient(60%_50%_at_50%_0%,rgba(194,165,103,0.12),transparent_60%)]"
-          }`}
+              ? "pointer-events-none absolute inset-x-0 -top-20 h-[420px] [background:radial-gradient(60%_50%_at_50%_0%,rgba(168,85,247,0.18),transparent_60%)]"
+              : "pointer-events-none absolute inset-x-0 -top-20 h-[420px] [background:radial-gradient(60%_50%_at_50%_0%,rgba(194,165,103,0.12),transparent_60%)]"
+          }
         />
         <div className="relative mx-auto max-w-3xl px-5 sm:px-8">
           <div className="flex items-center justify-between gap-4">
@@ -97,7 +100,7 @@ export function GrowthInsightArticle({ post }: { post: GrowthInsight }) {
             {post.title}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/68">{post.summary}</p>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">{post.summary}</p>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.22em] text-white/45">
             <span className="text-white/75">By Jamaur Johnson</span>
@@ -111,18 +114,9 @@ export function GrowthInsightArticle({ post }: { post: GrowthInsight }) {
 
       <section className="pb-24 sm:pb-32">
         <div className="mx-auto max-w-3xl px-5 sm:px-8">
-          <article className="space-y-6 text-[17px] leading-[1.78] text-white/78">
+          <article className="space-y-6 text-[17px] leading-[1.78] text-white/80">
             {post.body.map((paragraph, index) => (
-              <p
-                key={index}
-                className={
-                  index === 0
-                    ? `first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-6xl first-letter:font-semibold first-letter:leading-[0.85] ${
-                        isHybrid ? "first-letter:text-violet-400" : "first-letter:text-[#c2a567]"
-                      }`
-                    : undefined
-                }
-              >
+              <p key={index} className={index === 0 ? dropCapClass : undefined}>
                 {paragraph}
               </p>
             ))}
@@ -156,13 +150,15 @@ export function GrowthInsightArticle({ post }: { post: GrowthInsight }) {
             >
               {post.cta.headline}
             </h2>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/62">{post.cta.body}</p>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/65">{post.cta.body}</p>
             {post.cta.href.startsWith("/") ? (
               <Link
                 href={post.cta.href}
-                className={`mt-6 inline-flex h-12 items-center rounded-full px-7 text-[11px] font-semibold uppercase tracking-[0.22em] ${
-                  isHybrid ? "bg-violet-500 text-white hover:bg-cyan-300 hover:text-[#06031a]" : "bg-[#c2a567] text-[#0a0f1d] hover:bg-[#d1b67c]"
-                } transition-colors`}
+                className={
+                  isHybrid
+                    ? "mt-6 inline-flex h-12 items-center rounded-full bg-violet-500 px-7 text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition-colors hover:bg-cyan-300 hover:text-[#06031a]"
+                    : "mt-6 inline-flex h-12 items-center rounded-full bg-[#c2a567] px-7 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#0a0f1d] transition-colors hover:bg-[#d1b67c]"
+                }
               >
                 {post.cta.label}
               </Link>
@@ -171,9 +167,11 @@ export function GrowthInsightArticle({ post }: { post: GrowthInsight }) {
                 href={post.cta.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-6 inline-flex h-12 items-center rounded-full px-7 text-[11px] font-semibold uppercase tracking-[0.22em] ${
-                  isHybrid ? "bg-violet-500 text-white hover:bg-cyan-300 hover:text-[#06031a]" : "bg-[#c2a567] text-[#0a0f1d] hover:bg-[#d1b67c]"
-                } transition-colors`}
+                className={
+                  isHybrid
+                    ? "mt-6 inline-flex h-12 items-center rounded-full bg-violet-500 px-7 text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition-colors hover:bg-cyan-300 hover:text-[#06031a]"
+                    : "mt-6 inline-flex h-12 items-center rounded-full bg-[#c2a567] px-7 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#0a0f1d] transition-colors hover:bg-[#d1b67c]"
+                }
               >
                 {post.cta.label}
               </a>
