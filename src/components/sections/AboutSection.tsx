@@ -8,6 +8,8 @@ import { ABOUT } from "@/lib/portfolio-data";
 
 const PILLARS = [
   { label: "AI Automation", color: "from-cyan-400 to-blue-600" },
+  { label: "Affiliate Growth", color: "from-cyan-300 to-violet-600" },
+  { label: "Digital Marketing", color: "from-blue-400 to-indigo-600" },
   { label: "Music", color: "from-pink-500 to-rose-600" },
   { label: "Trading Education", color: "from-fuchsia-500 to-violet-700" },
   { label: "Health", color: "from-emerald-400 to-cyan-600" },
