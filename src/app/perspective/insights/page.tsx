@@ -4,6 +4,7 @@ import {
   INSIGHTS_POSTS,
   publishedSortKey,
 } from "@/lib/perspective-content";
+import { GROWTH_INSIGHTS } from "@/lib/growth-insights";
 import { PerspectiveFooter } from "@/components/perspective/PerspectiveFooter";
 import { ThemeToggle } from "@/components/perspective/ThemeToggle";
 import {
@@ -16,7 +17,7 @@ const SITE_URL = "https://jamaurjohnson.com";
 export const metadata: Metadata = {
   title: "Insights — LIV8 Perspective",
   description:
-    "Editorial on operations, AI, capital, leverage, spirituality, music, and how systems give modern operators their time back. Published under LIV8 Perspective for LIV8 and Hybrid Funding.",
+    "Editorial on operations, AI, affiliate growth, digital marketing, capital, leverage, spirituality, music, and how systems create modern leverage.",
   alternates: { canonical: `${SITE_URL}/perspective/insights` },
   openGraph: {
     type: "website",
@@ -24,12 +25,13 @@ export const metadata: Metadata = {
     siteName: "LIV8 Perspective",
     title: "Insights — LIV8 Perspective",
     description:
-      "All articles from LIV8 Perspective — operations and AI for LIV8, trading and prop-firm strategy for Hybrid Funding, plus spirituality, investments, music, and life systems.",
+      "All articles from LIV8 Perspective — operations, AI, affiliate growth, digital marketing, trading, capital, investments, music, and life systems.",
   },
 };
 
 export default function InsightsIndexPage() {
-  const posts: InsightsGridPost[] = [...INSIGHTS_POSTS]
+  const allPosts = [...GROWTH_INSIGHTS, ...INSIGHTS_POSTS];
+  const posts: InsightsGridPost[] = allPosts
     .sort(
       (a, b) =>
         publishedSortKey(b.publishedDate) - publishedSortKey(a.publishedDate),
@@ -73,24 +75,24 @@ export default function InsightsIndexPage() {
             className="mt-5 max-w-3xl text-balance text-4xl leading-[1.05] tracking-tight text-[#f4ede0] sm:text-5xl md:text-6xl"
             style={{ fontFamily: "var(--font-editorial)" }}
           >
-            Business, capital, spirit, sound, and the systems behind all of it.
+            Business, growth, capital, technology, spirit, sound — and the systems behind all of it.
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#f4ede0]/70">
-            Long-form editorial across the work — operations and AI for LIV8,
-            trading and capital for Hybrid Funding, plus spirituality,
-            investments, music, and the life systems that make the rest
-            sustainable. Filter by topic below.
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[#f4ede0]/70">
+            Long-form editorial across the work: operations and AI for LIV8,
+            affiliate growth and digital marketing, trading and capital for
+            Hybrid Funding, plus investments, music, mindset, and the life
+            systems that make the rest sustainable. Filter by topic below.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.28em]">
             <span className="inline-flex items-center gap-2 rounded-full border border-[#c2a567]/35 px-3 py-1.5 text-[#c2a567]">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#c2a567]" />
-              LIV8 · Operations · Mindset · Life
+              LIV8 · Operations · AI · Affiliate Growth
             </span>
             <span className="inline-flex items-center gap-2 rounded-full border border-violet-400/35 px-3 py-1.5 text-cyan-300">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_10px_rgba(34,211,238,0.7)]" />
-              Hybrid Funding · Trading · Capital
+              Hybrid Funding · Trading · Markets · Capital
             </span>
           </div>
         </div>
