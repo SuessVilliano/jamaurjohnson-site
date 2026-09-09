@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { INSIGHTS_POSTS } from "@/lib/perspective-content";
+import { GROWTH_INSIGHTS } from "@/lib/growth-insights";
 
 const SITE_URL = "https://jamaurjohnson.com";
 
@@ -25,6 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
+      url: `${SITE_URL}/affiliate-growth`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.95,
+    },
+    {
       url: `${SITE_URL}/perspective`,
       lastModified: now,
       changeFrequency: "weekly",
@@ -36,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.85,
     },
-    ...INSIGHTS_POSTS.map((p) => ({
+    ...[...GROWTH_INSIGHTS, ...INSIGHTS_POSTS].map((p) => ({
       url: `${SITE_URL}/perspective/insights/${p.slug}`,
       lastModified: now,
       changeFrequency: "monthly" as const,
