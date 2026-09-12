@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { DIGITAL_REAL_ESTATE_BANNER } from "@/lib/digital-real-estate-banner";
 
 const SITE_URL = "https://jamaurjohnson.com";
 const BOOKING_URL = "https://speakwith.us/jamaurjohnson";
@@ -93,6 +94,36 @@ export default function DigitalRealEstatePage() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-white/10 bg-[#080b13] py-10 sm:py-14">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="group block overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.025] shadow-[0_24px_90px_rgba(0,0,0,0.38)] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/30"
+          >
+            <div className="relative overflow-hidden">
+              <img
+                src={DIGITAL_REAL_ESTATE_BANNER}
+                alt="Jamaur Johnson showing how AI, automation, SaaS, leads, and systems can create recurring digital income"
+                className="aspect-[16/9] w-full object-cover transition-transform duration-700 group-hover:scale-[1.01]"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#06080f]/35 via-transparent to-transparent" />
+            </div>
+            <div className="flex flex-col gap-5 border-t border-white/10 px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-cyan-300">Let AI Do The Work</div>
+                <div className="mt-2 text-xl font-semibold text-white sm:text-2xl">Turn ideas, automation, software and distribution into assets that compound.</div>
+                <p className="mt-2 max-w-3xl text-sm leading-relaxed text-white/55">If you already have momentum and want to turn it into a more durable system, schedule time with me.</p>
+              </div>
+              <span className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-cyan-300 px-6 text-[10px] font-bold uppercase tracking-[0.2em] text-[#06080f]">
+                Book Strategy Time →
+              </span>
+            </div>
+          </a>
         </div>
       </section>
 
