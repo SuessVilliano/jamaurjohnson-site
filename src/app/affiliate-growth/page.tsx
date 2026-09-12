@@ -1,8 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { GhlEmbed } from "@/components/lead/GhlEmbed";
+import { AFFILIATE_STAGE_IMAGE_1, AFFILIATE_STAGE_IMAGE_2 } from "@/lib/affiliate-stage-image";
 
 const SITE_URL = "https://jamaurjohnson.com";
+const AFFILIATE_STAGE_IMAGE = `data:image/webp;base64,${AFFILIATE_STAGE_IMAGE_1}${AFFILIATE_STAGE_IMAGE_2}`;
 
 export const metadata: Metadata = {
   title: "Affiliate Growth & Digital Real Estate",
@@ -66,34 +68,49 @@ export default function AffiliateGrowthPage() {
             ← Jamaur Johnson
           </Link>
 
-          <div className="mt-12 max-w-4xl">
-            <div className="text-[11px] uppercase tracking-[0.32em] text-cyan-300">
-              Digital Growth & Affiliate Strategy
-            </div>
-            <h1
-              className="mt-5 text-balance text-4xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
-              style={{ fontFamily: "var(--font-orbitron)" }}
-            >
-              I Think About Affiliate Revenue Like Digital Real Estate.
-            </h1>
-            <p className="mt-7 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl">
-              You build the asset once, improve it continuously, and — when the economics and retention are right — it can keep paying you every month. My work inside the HighLevel affiliate ecosystem puts me alongside established partners who have already crossed the 100+ trial threshold, which gives me a front-row view of what separates a referral link from a real recurring-revenue engine.
-            </p>
+          <div className="mt-12 grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
+            <div>
+              <div className="text-[11px] uppercase tracking-[0.32em] text-cyan-300">
+                Digital Growth & Affiliate Strategy
+              </div>
+              <h1
+                className="mt-5 text-balance text-4xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
+                style={{ fontFamily: "var(--font-orbitron)" }}
+              >
+                I Think About Affiliate Revenue Like Digital Real Estate.
+              </h1>
+              <p className="mt-7 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl">
+                You build the asset once, improve it continuously, and — when the economics and retention are right — it can keep paying you every month. My work inside the HighLevel affiliate ecosystem puts me alongside established partners who have already crossed the 100+ trial threshold, which gives me a front-row view of what separates a referral link from a real recurring-revenue engine.
+              </p>
 
-            <div className="mt-9 flex flex-wrap gap-3">
-              <a
-                href="#book"
-                className="inline-flex h-12 items-center rounded-full bg-cyan-300 px-7 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#06080f] transition-transform hover:-translate-y-0.5"
-              >
-                Schedule Time With Me
-              </a>
-              <Link
-                href="/perspective/insights"
-                className="inline-flex h-12 items-center rounded-full border border-white/15 px-7 text-[11px] uppercase tracking-[0.22em] text-white/80 transition-colors hover:border-violet-400/50 hover:text-white"
-              >
-                Read Affiliate Insights
-              </Link>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <a
+                  href="#book"
+                  className="inline-flex h-12 items-center rounded-full bg-cyan-300 px-7 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#06080f] transition-transform hover:-translate-y-0.5"
+                >
+                  Schedule Time With Me
+                </a>
+                <Link
+                  href="/perspective/insights"
+                  className="inline-flex h-12 items-center rounded-full border border-white/15 px-7 text-[11px] uppercase tracking-[0.22em] text-white/80 transition-colors hover:border-violet-400/50 hover:text-white"
+                >
+                  Read Affiliate Insights
+                </Link>
+              </div>
             </div>
+
+            <figure className="relative mx-auto w-full max-w-[430px] overflow-hidden rounded-[2rem] border border-cyan-300/20 bg-white/[0.03] shadow-2xl shadow-cyan-950/30 lg:mx-0 lg:ml-auto">
+              <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#06080f]/70 via-transparent to-cyan-400/5" />
+              <img
+                src={AFFILIATE_STAGE_IMAGE}
+                alt="Jamaur Johnson speaking on stage about affiliate marketing"
+                className="aspect-[2/3] h-auto w-full object-cover"
+              />
+              <figcaption className="absolute inset-x-5 bottom-5 z-20 rounded-2xl border border-white/10 bg-[#06080f]/80 px-5 py-4 backdrop-blur-md">
+                <div className="text-[10px] uppercase tracking-[0.28em] text-cyan-300">Affiliate Growth</div>
+                <div className="mt-1 text-sm font-medium text-white/90">People. Systems. Profits. Freedom.</div>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
