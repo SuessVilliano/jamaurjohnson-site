@@ -13,7 +13,7 @@ const LINKS = [
   { href: "#companies", label: "Companies" },
   { href: "#sites", label: "Sites" },
   { href: "#music", label: "Music" },
-  { href: "/affiliate-growth", label: "Affiliate Strategy" },
+  { href: "/digital-real-estate", label: "Digital Real Estate" },
   { href: "/perspective/insights", label: "Blog" },
   { href: "#contact", label: "Contact" },
 ];
