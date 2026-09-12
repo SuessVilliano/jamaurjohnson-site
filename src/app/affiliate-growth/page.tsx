@@ -1,57 +1,51 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { GhlEmbed } from "@/components/lead/GhlEmbed";
 import { AFFILIATE_STAGE_IMAGE_1, AFFILIATE_STAGE_IMAGE_2 } from "@/lib/affiliate-stage-image";
 
 const SITE_URL = "https://jamaurjohnson.com";
+const BOOKING_URL = "https://speakwith.us/jamaurjohnson";
 const AFFILIATE_STAGE_IMAGE = `data:image/webp;base64,${AFFILIATE_STAGE_IMAGE_1}${AFFILIATE_STAGE_IMAGE_2}`;
 
 export const metadata: Metadata = {
-  title: "Affiliate Growth & Digital Real Estate",
+  title: "Affiliate Growth Strategy & Consulting",
   description:
-    "Jamaur Johnson on affiliate growth, recurring revenue, HighLevel, and building digital real estate that compounds month after month.",
+    "Jamaur Johnson works with established HighLevel affiliates, high producers, and serious operators on positioning, activation, retention, content systems, and recurring-revenue growth.",
   alternates: { canonical: `${SITE_URL}/affiliate-growth` },
   openGraph: {
     type: "website",
     url: `${SITE_URL}/affiliate-growth`,
     siteName: "Jamaur Johnson",
-    title: "Affiliate Growth & Digital Real Estate · Jamaur Johnson",
+    title: "Affiliate Growth Strategy & Consulting · Jamaur Johnson",
     description:
-      "How serious affiliates turn content, trust, software and retention into recurring digital assets.",
+      "Strategy for established affiliates who already have traction and want to turn momentum into durable recurring revenue.",
   },
 };
-
-const ECONOMICS = [
-  ["$97 plan", "$38.80/mo"],
-  ["$297 plan", "$118.80/mo"],
-  ["$497 plan", "$198.80/mo"],
-] as const;
 
 const FRAMEWORK = [
   {
     number: "01",
-    title: "Earn attention",
-    body: "Content, community, partnerships and education create the first touch. The goal is not clicks for the sake of clicks — it is qualified attention from people who can actually benefit from the platform.",
+    title: "Sharpen positioning",
+    body: "Clarify who you are for, what problem you solve, and why your audience should move now instead of treating your referral link like another generic promotion.",
   },
   {
     number: "02",
-    title: "Convert trust into trials",
-    body: "A referral link is not a strategy. The best affiliates give people a reason to act: a use case, a clear offer, proof, a tutorial, a migration plan or a specific problem the platform solves.",
+    title: "Improve activation",
+    body: "Turn interest and trials into real usage with better onboarding, clearer next steps, practical implementation, and faster time-to-value.",
   },
   {
     number: "03",
-    title: "Turn trials into customers",
-    body: "This is where onboarding matters. Faster time-to-value, better education and clearer next steps usually matter more than another round of promotion.",
+    title: "Build content leverage",
+    body: "Create repeatable content systems that educate, create demand, answer objections, and keep working long after the original post goes live.",
   },
   {
     number: "04",
     title: "Protect retention",
-    body: "Recurring revenue only compounds when customers stay. Strong affiliates keep teaching after the sale, build communities, surface new use cases and help customers keep getting value from the product.",
+    body: "Recurring revenue compounds when customers keep getting value. Retention strategy matters just as much as getting the referral in the first place.",
   },
   {
     number: "05",
-    title: "Build the asset",
-    body: "When the system works, yesterday's content and relationships can keep producing tomorrow's commissions. That is the point where affiliate marketing starts behaving like digital real estate.",
+    title: "Scale the asset",
+    body: "Once the engine works, systemize the parts that can be repeated so content, partnerships, customer success, and recurring revenue reinforce each other.",
   },
 ] as const;
 
@@ -71,21 +65,23 @@ export default function AffiliateGrowthPage() {
           <div className="mt-12 grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14">
             <div>
               <div className="text-[11px] uppercase tracking-[0.32em] text-cyan-300">
-                Digital Growth & Affiliate Strategy
+                Affiliate Growth Strategy & Consulting
               </div>
               <h1
                 className="mt-5 text-balance text-4xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
                 style={{ fontFamily: "var(--font-orbitron)" }}
               >
-                I Think About Affiliate Revenue Like Digital Real Estate.
+                You Already Have Traction. Let&apos;s Build The Next Level.
               </h1>
               <p className="mt-7 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl">
-                You build the asset once, improve it continuously, and — when the economics and retention are right — it can keep paying you every month. My work inside the HighLevel affiliate ecosystem puts me alongside established partners who have already crossed the 100+ trial threshold, which gives me a front-row view of what separates a referral link from a real recurring-revenue engine.
+                I work best with established affiliates, high producers, high-income earners, and serious operators who are already creating demand and want to improve positioning, conversion, activation, retention, content systems, and recurring-revenue durability.
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
-                  href="#book"
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex h-12 items-center rounded-full bg-cyan-300 px-7 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#06080f] transition-transform hover:-translate-y-0.5"
                 >
                   Schedule Time With Me
@@ -118,20 +114,20 @@ export default function AffiliateGrowthPage() {
       <section className="border-b border-white/10 py-20 sm:py-28">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div>
-            <div className="text-[10px] uppercase tracking-[0.3em] text-violet-300">Who I Am In This World</div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-violet-300">Who I Work Best With</div>
             <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-5xl">
-              Founder brain. Operator experience. Affiliate-growth lens.
+              Producers who are past the beginner conversation.
             </h2>
           </div>
           <div className="space-y-5 text-base leading-relaxed text-white/70 sm:text-lg">
             <p>
-              I did not stop being a founder, AI automation architect, trader or builder when I stepped deeper into the affiliate side of software. I added another vantage point: what happens after a platform is built, when thousands of people have to understand it, trust it, sell it, onboard customers into it and keep those customers successful.
+              If you already know how to get attention, generate trials, build an audience, sell, or create revenue online, the problems become different. The question is no longer simply how to post a link — it is how to make the entire growth system more efficient and more durable.
             </p>
             <p>
-              My focus is established affiliate partners — the people who have already proven they can create demand. At the 100+ trial level, the conversation changes. It is less about “how do I post my link?” and more about conversion, activation, retention, positioning, campaigns, content systems, attribution and how to make the revenue durable.
+              That can mean better positioning, stronger campaigns, more effective content, improved onboarding, higher activation, better retention, cleaner attribution, or finding the next constraint keeping your book of business from compounding faster.
             </p>
             <p>
-              That is the part that fits everything else I already do. I have always been interested in leverage: systems that keep working after the initial effort is over. Affiliate revenue is another form of leverage when it is built correctly.
+              My value is in looking at the system with you, finding the leverage point, and helping you turn what is already working into something more scalable.
             </p>
           </div>
         </div>
@@ -140,38 +136,13 @@ export default function AffiliateGrowthPage() {
       <section className="border-b border-white/10 bg-[#090d17] py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <div className="max-w-3xl">
-            <div className="text-[10px] uppercase tracking-[0.3em] text-cyan-300">The Digital Real Estate Idea</div>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-5xl">
-              A customer can become a piece of recurring digital property.
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-white/65">
-              HighLevel publicly advertises a 40% monthly recurring commission on direct referred subscriptions. That means a customer who stays active can keep producing commission month after month. It is not passive by magic — retention still has to be earned — but the economics are fundamentally different from a one-time sale.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
-            {ECONOMICS.map(([plan, commission]) => (
-              <div key={plan} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                <div className="text-xs uppercase tracking-[0.24em] text-white/45">HighLevel {plan}</div>
-                <div className="mt-3 text-3xl font-semibold text-cyan-300">{commission}</div>
-                <div className="mt-2 text-sm text-white/50">illustrative 40% recurring commission</div>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-6 max-w-4xl text-sm leading-relaxed text-white/45">
-            Example economics only. Actual earnings depend on referred plan mix, trial-to-paid conversion, retention, upgrades, cancellations, attribution and current affiliate-program terms. A trial by itself is not a commission.
-          </p>
-        </div>
-      </section>
-
-      <section className="border-b border-white/10 py-20 sm:py-28">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <div className="max-w-3xl">
-            <div className="text-[10px] uppercase tracking-[0.3em] text-violet-300">The Growth System</div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-cyan-300">The Growth System</div>
             <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-5xl">
               The affiliate flywheel is bigger than traffic.
             </h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/65">
+              The strongest affiliate businesses connect attention, trust, activation, customer success, retention, and recurring revenue into one system. More traffic only helps when the rest of the engine can convert and retain it.
+            </p>
           </div>
 
           <div className="mt-12 grid gap-5 lg:grid-cols-5">
@@ -186,21 +157,21 @@ export default function AffiliateGrowthPage() {
         </div>
       </section>
 
-      <section className="border-b border-white/10 bg-[#090d17] py-20 sm:py-28">
+      <section className="border-b border-white/10 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <div className="grid gap-10 lg:grid-cols-2">
             <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 sm:p-9">
               <div className="text-[10px] uppercase tracking-[0.3em] text-cyan-300">What I Look At</div>
-              <h3 className="mt-4 text-2xl font-semibold sm:text-3xl">The earliest constraint in the funnel.</h3>
+              <h3 className="mt-4 text-2xl font-semibold sm:text-3xl">Find the earliest constraint in the funnel.</h3>
               <p className="mt-4 text-base leading-relaxed text-white/65">
-                Audience → content and offer → clicks → trials → paid customers → retention → recurring affiliate revenue. If the audience is there but clicks are weak, that is a positioning problem. If trials are healthy but paid conversion is weak, that is an activation problem. If paid customers churn, more traffic simply pours water into a leaking bucket.
+                Audience → content and offer → clicks → trials → paid customers → activation → retention → recurring revenue. The most valuable next move is usually fixing the earliest meaningful constraint, not adding more activity everywhere at once.
               </p>
             </div>
             <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 sm:p-9">
-              <div className="text-[10px] uppercase tracking-[0.3em] text-violet-300">What I Believe</div>
-              <h3 className="mt-4 text-2xl font-semibold sm:text-3xl">Trust is a measurable growth asset.</h3>
+              <div className="text-[10px] uppercase tracking-[0.3em] text-violet-300">How I Help</div>
+              <h3 className="mt-4 text-2xl font-semibold sm:text-3xl">Strategic thinking without pretending you need another agency.</h3>
               <p className="mt-4 text-base leading-relaxed text-white/65">
-                The fastest way to rebuild momentum with an audience or an inactive partner is not another generic check-in. It is a useful hook: a promotion, a content angle, a funnel insight, a milestone gap, a fix, or a concrete next move. Be human. Be concise. Be useful. End with one clear next step.
+                This is consulting and strategic support — not agency management. We can look at the numbers, messaging, offers, campaigns, content, funnels, partner opportunities, activation, or retention and identify the highest-leverage move from where you are now.
               </p>
             </div>
           </div>
@@ -210,21 +181,25 @@ export default function AffiliateGrowthPage() {
       <section id="book" className="py-20 sm:py-28">
         <div className="mx-auto max-w-5xl px-5 sm:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="text-[10px] uppercase tracking-[0.3em] text-cyan-300">Talk Strategy</div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-cyan-300">Schedule Time</div>
             <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-5xl">
-              Already generating HighLevel trials? Let&apos;s talk about what comes next.
+              If you&apos;re already producing, let&apos;s talk about what comes next.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-white/65 sm:text-lg">
-              If you are building content, generating trials, trying to improve activation or turning your referrals into a more durable recurring-revenue business, schedule time with me below.
+              If you are an established affiliate, high producer, high-income earner, creator, or operator with real traction, schedule time with me and we&apos;ll look at where the next growth opportunity is.
             </p>
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 inline-flex h-13 items-center rounded-full bg-cyan-300 px-8 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#06080f] transition-transform hover:-translate-y-0.5"
+            >
+              Book A Strategy Call →
+            </a>
           </div>
 
-          <div className="mt-10 overflow-hidden rounded-3xl border border-white/10 bg-white">
-            <GhlEmbed type="calendar" />
-          </div>
-
-          <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-white/35">
-            HighLevel is a third-party software platform. Content on this personal site reflects Jamaur Johnson&apos;s own perspective and is not an official HighLevel statement, guarantee or earnings claim. Affiliate terms and program details can change.
+          <p className="mx-auto mt-10 max-w-3xl text-center text-xs leading-relaxed text-white/35">
+            HighLevel is a third-party software platform. Content on this personal site reflects Jamaur Johnson&apos;s own perspective and is not an official HighLevel statement, guarantee, or earnings claim. Affiliate terms and program details can change.
           </p>
         </div>
       </section>
