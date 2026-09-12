@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { GlassButton } from "@/components/ui/GlassButton";
 
 /**
- * Homepage cross-link banner for Jamaur's current HighLevel work.
- * Focused on consulting with established affiliate partners and producers.
+ * Homepage cross-link banner for Jamaur's digital real estate thesis.
+ * HighLevel and affiliate marketing are supporting layers inside the broader strategy.
  */
 export function HighLevelCTA() {
   return (
@@ -27,26 +27,26 @@ export function HighLevelCTA() {
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/70">
                 <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(78,224,255,0.8)]" />
-                HighLevel Affiliate Strategy
+                Digital Real Estate
               </div>
 
               <h2
                 className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold leading-[1.08] tracking-tight text-gradient"
                 style={{ fontFamily: "var(--font-orbitron)" }}
               >
-                Helping Proven Affiliates Turn Momentum Into Durable Growth
+                Build Assets That Keep Creating Value After The First Move
               </h2>
 
               <p className="mt-5 max-w-xl text-base sm:text-lg text-white/65 leading-relaxed">
-                My focus is now on established affiliates, high producers, and serious operators who already have traction and want sharper positioning, better activation, stronger retention, and systems that compound recurring revenue.
+                Content, audience, automation, software, affiliate relationships, data, and recurring revenue can all become digital property when the work keeps producing value after the original effort is over.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/55">
                 <span className="inline-flex items-center gap-2">
-                  <span className="text-cyan-300">✦</span> Affiliate growth strategy
+                  <span className="text-cyan-300">✦</span> HighLevel as operating infrastructure
                 </span>
                 <span className="inline-flex items-center gap-2">
-                  <span className="text-cyan-300">✦</span> Conversion, activation & retention
+                  <span className="text-cyan-300">✦</span> Affiliate marketing as a recurring-revenue layer
                 </span>
               </div>
             </div>
@@ -55,11 +55,11 @@ export function HighLevelCTA() {
               <GlassButton href="https://speakwith.us/jamaurjohnson" size="lg" variant="primary">
                 Schedule Time With Me →
               </GlassButton>
-              <GlassButton href="/affiliate-growth" size="lg" variant="ghost">
-                Explore Affiliate Strategy →
+              <GlassButton href="/digital-real-estate" size="lg" variant="ghost">
+                Explore Digital Real Estate →
               </GlassButton>
               <span className="max-w-xs text-left text-xs leading-relaxed text-white/40 lg:text-right">
-                Best fit for established affiliates, high producers, and serious recurring-revenue operators.
+                Best fit for established affiliates, high producers, founders, and serious operators building for leverage.
               </span>
             </div>
           </div>
