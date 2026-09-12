@@ -13,11 +13,20 @@ const PAGE_URL = `${SITE_URL}/highlevel-operations`;
 
 const TITLE = "Fractional HighLevel Operations For Growing Agencies";
 const DESCRIPTION =
-  "LIV8 AI is the fractional HighLevel operations partner for agencies with 3–30 clients. We go inside your account to audit, repair, and operate your HighLevel systems — starting with the 7-day HighLevel Rescue Sprint. Independent; not affiliated with or endorsed by HighLevel.";
+  "Archived LIV8 AI HighLevel operations offer. This page is retained for future reference but is not a current public offer.";
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+    },
+  },
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: "website",
@@ -41,71 +50,17 @@ const serviceJsonLd = {
   description: DESCRIPTION,
   url: PAGE_URL,
   areaServed: "US",
-  audience: {
-    "@type": "Audience",
-    audienceType: "HighLevel agency owners with 3–30 active clients",
-  },
   provider: {
     "@type": "Organization",
     name: "LIV8 AI",
     url: SITE_URL,
     founder: { "@type": "Person", name: "Jamaur Johnson", url: SITE_URL },
   },
-  offers: [
-    {
-      "@type": "Offer",
-      name: "HighLevel Rescue Sprint",
-      description:
-        "A 7-business-day audit, repair, and organization of an agency's HighLevel account with a written roadmap and 14 days of post-delivery support.",
-      price: "1500",
-      priceCurrency: "USD",
-    },
-    {
-      "@type": "Offer",
-      name: "LIV8 Ops Desk — Essential",
-      price: "497",
-      priceCurrency: "USD",
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        price: "497",
-        priceCurrency: "USD",
-        unitText: "MONTH",
-      },
-    },
-    {
-      "@type": "Offer",
-      name: "LIV8 Ops Desk — Growth",
-      price: "997",
-      priceCurrency: "USD",
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        price: "997",
-        priceCurrency: "USD",
-        unitText: "MONTH",
-      },
-    },
-    {
-      "@type": "Offer",
-      name: "LIV8 Ops Desk — Embedded",
-      price: "1997",
-      priceCurrency: "USD",
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        price: "1997",
-        priceCurrency: "USD",
-        unitText: "MONTH",
-      },
-    },
-  ],
 };
 
 /**
- * Isolated layout for the LIV8 AI HighLevel Operations landing page.
- *
- * Adds the Playfair Display editorial serif as `--font-editorial` and scopes a
- * dark surface to this branch of the tree. Unlike /perspective, we KEEP the
- * global GoHighLevel chat widget here — it fits a HighLevel-audience page and
- * doubles as live proof of a working LeadConnector install.
+ * Legacy HighLevel Operations page retained for future use.
+ * It is intentionally removed from navigation/sitemap and marked noindex.
  */
 export default function HighLevelLayout({ children }: { children: ReactNode }) {
   return (
