@@ -4,9 +4,8 @@ import { motion } from "framer-motion";
 import { GlassButton } from "@/components/ui/GlassButton";
 
 /**
- * Homepage cross-link banner for Jamaur's HighLevel ecosystem work.
- * Keeps the existing fractional-operations offer intact while adding a
- * separate path for affiliate growth strategy and editorial content.
+ * Homepage cross-link banner for Jamaur's current HighLevel work.
+ * Focused on consulting with established affiliate partners and producers.
  */
 export function HighLevelCTA() {
   return (
@@ -28,41 +27,39 @@ export function HighLevelCTA() {
             <div className="max-w-2xl">
               <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs uppercase tracking-[0.2em] text-white/70">
                 <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(78,224,255,0.8)]" />
-                HighLevel Ecosystem
+                HighLevel Affiliate Strategy
               </div>
 
               <h2
                 className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold leading-[1.08] tracking-tight text-gradient"
                 style={{ fontFamily: "var(--font-orbitron)" }}
               >
-                Your HighLevel Account, Rebuilt To Run Without You
+                Helping Proven Affiliates Turn Momentum Into Durable Growth
               </h2>
 
               <p className="mt-5 max-w-xl text-base sm:text-lg text-white/65 leading-relaxed">
-                Fractional HighLevel operations for growing agencies remains one side of the work.
-                I&apos;m also publishing what I&apos;m learning around affiliate growth, recurring
-                revenue, activation, retention, and building digital real estate that compounds.
+                My focus is now on established affiliates, high producers, and serious operators who already have traction and want sharper positioning, better activation, stronger retention, and systems that compound recurring revenue.
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/55">
                 <span className="inline-flex items-center gap-2">
-                  <span className="text-cyan-300">✦</span> Agency systems & implementation
+                  <span className="text-cyan-300">✦</span> Affiliate growth strategy
                 </span>
                 <span className="inline-flex items-center gap-2">
-                  <span className="text-cyan-300">✦</span> Affiliate growth & recurring revenue
+                  <span className="text-cyan-300">✦</span> Conversion, activation & retention
                 </span>
               </div>
             </div>
 
             <div className="flex shrink-0 flex-col items-start gap-3 lg:items-end">
-              <GlassButton href="/highlevel-operations" size="lg" variant="primary">
-                HighLevel Operations →
+              <GlassButton href="https://speakwith.us/jamaurjohnson" size="lg" variant="primary">
+                Schedule Time With Me →
               </GlassButton>
               <GlassButton href="/affiliate-growth" size="lg" variant="ghost">
-                Affiliate Growth →
+                Explore Affiliate Strategy →
               </GlassButton>
               <span className="max-w-xs text-left text-xs leading-relaxed text-white/40 lg:text-right">
-                Two different lanes: agency implementation and affiliate-growth strategy.
+                Best fit for established affiliates, high producers, and serious recurring-revenue operators.
               </span>
             </div>
           </div>
