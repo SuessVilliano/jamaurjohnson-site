@@ -22,6 +22,25 @@ export function MusicSection() {
           description="Original music, instrumentals, and healing frequencies — sound engineered for focus, performance, and elevation. Tap any cover to listen."
         />
 
+        <div className="mb-10 overflow-hidden rounded-3xl border border-cyan-300/25 bg-white/[0.04] p-5 sm:p-8">
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="text-xs uppercase tracking-[0.25em] text-cyan-300">Featured Album · Original Motion Picture Soundtrack</p>
+              <h3 className="mt-2 text-3xl font-semibold text-white sm:text-4xl" style={{ fontFamily: "var(--font-orbitron)" }}>TIME BACK</h3>
+              <p className="mt-2 max-w-xl text-sm leading-relaxed text-white/65">A cinematic music journey through creativity, technology, purpose, and reclaiming your time.</p>
+            </div>
+            <a href="https://music.apple.com/us/album/time-back-the-original-motion-picture-soundtrack/6813829169" target="_blank" rel="noopener noreferrer" className="rounded-full bg-cyan-300 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-200">Listen on Apple Music ↗</a>
+          </div>
+          <iframe
+            title="TIME BACK — The Original Motion Picture Soundtrack on Apple Music"
+            src="https://embed.music.apple.com/us/album/time-back-the-original-motion-picture-soundtrack/6813829169"
+            className="w-full rounded-xl border-0"
+            height="450"
+            loading="lazy"
+            allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+          />
+        </div>
+
         <div className="grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {MUSIC.map((m, i) => {
             const accent = ACCENTS[m.accent];
