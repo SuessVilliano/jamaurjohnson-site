@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { ContentHub } from "@/components/sections/ContentHub";
 import { ScrollJourney } from "@/components/sections/ScrollJourney";
 import { BooksSection } from "@/components/sections/BooksSection";
 import { CompaniesSection } from "@/components/sections/CompaniesSection";
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <main id="main-content" className="relative w-full">
       <Hero />
+      <ContentHub />
       <ScrollJourney />
       <BooksSection />
       <CompaniesSection />
