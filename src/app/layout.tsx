@@ -48,7 +48,6 @@ export const metadata: Metadata = {
     "LIV8AI",
     "Hybrid Funding",
     "Trade Hybrid",
-    "GoHighLevel expert",
     "AI automation architect",
     "AI agents",
     "SaaS founder",
